@@ -56,10 +56,10 @@ started with Machine Learning Operations (MLOps).
 
 ## Project Description
 
-# Goal
+### Goal
 
-# Framework
+### Framework
 
-# Data
+### Data
 
-# Models
+### Models
