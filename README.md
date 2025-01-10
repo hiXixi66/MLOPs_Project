@@ -61,5 +61,6 @@ started with Machine Learning Operations (MLOps).
 ### Framework
 
 ### Data
+The data we have chosen to work with consists of 75,000 images of rice grains, divided into five categories, with 15,000 images per category. The dataset, titled "Rice Image Dataset," can be accessed via the following link: https://www.muratkoklu.com/datasets/. The images will be normalized using the mean and standard deviations of the ImageNet dataset, as we will utilize pre-trained weights from the ResNet architecture.
 
 ### Models
