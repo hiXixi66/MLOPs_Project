@@ -178,5 +178,7 @@ cython_debug/
 
 
 # DON'T UPLOAD DATA FILES!
-data/raw/
-data/processed/
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
