@@ -66,3 +66,10 @@ This is the project description for Group 18 in the Machine Learning Operations 
 The data we have chosen to work with consists of 75,000 images of rice grains, divided into five categories, with 15,000 images per category. The dataset, titled "Rice Image Dataset," can be accessed via the following link: https://www.muratkoklu.com/datasets/. The images will be normalized using the mean and standard deviations of the ImageNet dataset, as we will utilize pre-trained weights from the ResNet architecture.
 
 ### Models
+
+We aim to perform an image classification task on the rice dataset using convolutional neural networks (CNNs). Our approach will include:
+
+1.  ResNet: Leveraging pre-trained models from the TIMM framework for robust feature extraction and fine-tuning.
+2.  Baseline CNN: Implementing a simple convolutional architecture as a baseline to compare performance against ResNet.
+
+In addition to experimenting with these models, we plan to explore and tune various hyperparameters such as learning rate, optimizer, batch size, and model depth to optimize classification performance.
