@@ -56,9 +56,9 @@ started with Machine Learning Operations (MLOps).
 
 ## Project Description
 
-This is the project description for Group 18 in the Machine Learning Operations course at DTU. The primary objective of this project is to apply the concepts and techniques learned throughout the course to a real-world machine learning problem: classifying different types of rice from images. To approach this, we plan to leverage the PyTorch Image Models (TIMM) framework, which offers a collection of pre-trained models and tools that can significantly streamline the development and fine-tuning process for image classification tasks. Finally, we will present our findings through a concise presentation and submit the completed code for evaluation.
-
 ### Goal
+
+This is the project description for Group 18 in the Machine Learning Operations course at DTU. The primary objective of this project is to apply the concepts and techniques learned throughout the course to a real-world machine learning problem: classifying different types of rice from images. To approach this, we plan to leverage the PyTorch Image Models (TIMM) framework, which offers a collection of pre-trained models and tools that can significantly streamline the development and fine-tuning process for image classification tasks. Finally, we will present our findings through a concise presentation and submit the completed code for evaluation.
 
 ### Framework
 
