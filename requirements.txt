@@ -4,3 +4,7 @@ fastapi==0.115.6
 uvicorn==0.34.0
 torchvision==0.20.1
 numpy==2.1.1
+
+#testing
+pytest==7.4.3
+coverage==7.6.9
