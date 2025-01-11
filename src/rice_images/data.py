@@ -59,7 +59,7 @@ def pre_process_data():
     # Set seed for reproducibility of train, validation and test datasets
     torch.manual_seed(0)
     # Define split sizes
-    train_size = int(0.7 * len(dataset))
+    train_size = int(0.7 * len(dataset)) # Splits are hardcoded into tests
     val_size = int(0.15 * len(dataset))
     test_size = len(dataset) - train_size - val_size
 
