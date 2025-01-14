@@ -1,0 +1,11 @@
+outs:
+- hash: md5
+  path: data_tester
+  files:
+  - relpath: Basmati (1).jpg
+    md5: 5a2a0228062a0e2605fff969eb47f30e
+    size: 3563
+    cloud:
+      remote_storage:
+        etag: 08e3e1c3d2a7f58a031001
+        version_id: '1736861056823523'
