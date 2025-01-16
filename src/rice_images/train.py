@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import torch
 import typer
 from rice_images.data import load_data
-from rice_images.model import load_resnet18
+from rice_images.model import load_resnet18_timm
 import os
 
 # Set the device
@@ -33,7 +33,7 @@ def train(
     num_classes = 5  # There are 5 different grains of rice
 
     # Load the model
-    model = load_resnet18(num_classes=num_classes).to(DEVICE)
+    model = load_resnet18_timm(num_classes=num_classes).to(DEVICE)
 
     # Create data loaders
     train_dataloader = torch.utils.data.DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
