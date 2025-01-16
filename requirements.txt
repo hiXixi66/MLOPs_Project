@@ -5,3 +5,4 @@ uvicorn==0.34.0
 torchvision==0.20.1
 numpy==2.1.1
 timm==1.0.9
+black==24.10.0
