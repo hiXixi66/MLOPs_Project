@@ -3,4 +3,4 @@ outs:
   size: 284402374
   nfiles: 75006
   hash: md5
-  path: data
+  path: data/raw
