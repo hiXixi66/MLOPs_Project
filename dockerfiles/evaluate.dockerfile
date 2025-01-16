@@ -15,8 +15,9 @@ COPY data/ data/
 COPY models/ models/
 COPY reports/ reports/
 
+RUN pip install --upgrade pip setuptools wheel --no-cache-dir
+RUN pip install -r requirements.txt --no-cache-dir
+RUN pip install . --no-deps --no-cache-dir
 
-RUN pip install -r requirements.txt --no-cache-dir --verbose
-RUN pip install . --no-deps --no-cache-dir --verbose
 
-ENTRYPOINT ["python", "-u", "src/rice_images/train.py"]
+ENTRYPOINT ["python", "-u", "src/rice_images/evaluate.py"]

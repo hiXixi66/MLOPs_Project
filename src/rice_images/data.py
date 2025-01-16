@@ -3,37 +3,37 @@ from torchvision import datasets, transforms
 from torch.utils.data import DataLoader
 
 # Not sure if downloading works...
-# def download_data():
-#     import os
-#     import requests
-#     import zipfile
+def download_data():
+    import os
+    import requests
+    import zipfile
 
-#     # Define the folder and file paths
-#     raw_folder = 'data/raw/'
-#     zip_file_path = os.path.join(raw_folder, 'dataset.zip')
+    # Define the folder and file paths
+    raw_folder = 'data/raw/'
+    zip_file_path = os.path.join(raw_folder, 'dataset.zip')
 
-#     # Ensure the folder exists
-#     os.makedirs(raw_folder, exist_ok=True)
+    # Ensure the folder exists
+    os.makedirs(raw_folder, exist_ok=True)
 
-#     # Direct file URL (replace if necessary)
-#     file_url = 'https://www.muratkoklu.com/datasets/vtdhnd09.php'
+    # Direct file URL (replace if necessary)
+    file_url = 'https://www.muratkoklu.com/datasets/vtdhnd09.php'
 
-#     # Download the .zip file
-#     print("Downloading the file...")
-#     response = requests.get(file_url, allow_redirects=True)
-#     with open(zip_file_path, 'wb') as file:
-#         file.write(response.content)
-#     print(f"File downloaded and saved to {zip_file_path}")
+    # Download the .zip file
+    print("Downloading the file...")
+    response = requests.get(file_url, allow_redirects=True)
+    with open(zip_file_path, 'wb') as file:
+        file.write(response.content)
+    print(f"File downloaded and saved to {zip_file_path}")
 
-#     # Extract the .zip file
-#     print("Extracting the zip file...")
-#     with zipfile.ZipFile(zip_file_path, 'r') as zip_ref:
-#         zip_ref.extractall(raw_folder)
-#     print(f"Contents extracted to {raw_folder}")
+    # Extract the .zip file
+    print("Extracting the zip file...")
+    with zipfile.ZipFile(zip_file_path, 'r') as zip_ref:
+        zip_ref.extractall(raw_folder)
+    print(f"Contents extracted to {raw_folder}")
 
-#     # Optional: Remove the .zip file after extraction
-#     os.remove(zip_file_path)
-#     print("Zip file removed after extraction.")
+    # Optional: Remove the .zip file after extraction
+    os.remove(zip_file_path)
+    print("Zip file removed after extraction.")
 
 
 def load_data():
@@ -71,6 +71,7 @@ def pre_process_data():
 
 
 if __name__ =="__main__":
+    # download_data()
     pre_process_data()
 
 
