@@ -15,6 +15,7 @@ def load_resnet18_timm(num_classes=5):
     """
     # Load pre-trained ResNet-18 model from timm
     model = timm.create_model("resnet18", pretrained=True)
+
     # Replace the final classification layer to match num_classes
     # Check the number of input features for the classifier
     num_features = model.get_classifier().in_features
