@@ -1,24 +1,39 @@
 import torch
-import torchvision.models as models
+import timm
 import torch.nn as nn
-from torch.utils.data import DataLoader
 
-def load_resnet18(num_classes=5):
-    # Load pre-trained ResNet-18
-    model = models.resnet18(weights=models.ResNet18_Weights.IMAGENET1K_V1)
+def load_resnet18_timm(num_classes=5):
+    """
+    Load a pre-trained ResNet-18 model using timm and modify the final layer for a custom dataset.
     
-    # Replace the final fully connected layer for your custom dataset
-    # ResNet-18's fc layer input features are 512
-    model.fc = nn.Linear(512, num_classes)
+    Args:
+        num_classes (int): The number of classes for the final classification layer.
+        
+    Returns:
+        torch.nn.Module: The modified ResNet-18 model.
+    """
+    # Load pre-trained ResNet-18 model from timm
+    model = timm.create_model('resnet18', pretrained=True)
+
+    # Replace the final classification layer to match num_classes
+    # Check the number of input features for the classifier
+    num_features = model.get_classifier().in_features
+
+    # Set the classifier to a new fully connected layer
+    model.fc = nn.Linear(num_features, num_classes)
+
     return model
 
 
 if __name__ == "__main__":
-    model = load_resnet18()
+    # Load the model with the desired number of output classes
+    model = load_resnet18_timm()
+    
     print(f"Model architecture: {model}")
     print(f"Number of parameters: {sum(p.numel() for p in model.parameters())}")
 
+    # Test with a dummy input
     dummy_input = torch.randn(1, 3, 224, 224)
-    model.eval() 
+    model.eval()  # Set the model to evaluation mode
     output = model(dummy_input)
     print(f"Output shape: {output.shape}")
