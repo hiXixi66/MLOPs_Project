@@ -3,10 +3,10 @@ name: Linting
 on:
   push:
     branches:
-      - main
+      - unit-testing
   pull_request:
     branches:
-      - main
+      - unit-testing
 
 jobs:
   lint:
