@@ -2,6 +2,7 @@ import timm
 import torch
 import torch.nn as nn
 
+
 def load_resnet18_timm(num_classes=5):
     """
     Load a pre-trained ResNet-18 model using timm and modify the final layer for a custom dataset.
@@ -13,15 +14,12 @@ def load_resnet18_timm(num_classes=5):
         torch.nn.Module: The modified ResNet-18 model.
     """
     # Load pre-trained ResNet-18 model from timm
-    model = timm.create_model('resnet18', pretrained=True)
-
+    model = timm.create_model("resnet18", pretrained=True)
     # Replace the final classification layer to match num_classes
     # Check the number of input features for the classifier
     num_features = model.get_classifier().in_features
-
     # Set the classifier to a new fully connected layer
     model.fc = nn.Linear(num_features, num_classes)
-
     return model
 
 
