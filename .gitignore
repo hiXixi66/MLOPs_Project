@@ -184,3 +184,4 @@ data/processed/*
 !data/processed/.gitkeep
 /data
 /data_tester
+/models
