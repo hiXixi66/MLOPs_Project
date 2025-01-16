@@ -1,0 +1,9 @@
+defaults:
+  - override hydra/job_logging: none  # Optional: Suppresses Hydra logging
+
+lr: 1e-3
+batch_size: 32
+epochs: 2
+epoch_save_interval: 1
+model_save_path: "tester"
+downsample_train: 10
