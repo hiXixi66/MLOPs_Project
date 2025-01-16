@@ -56,18 +56,22 @@ def pre_process_data():
     # Load dataset from folder
     dataset = datasets.ImageFolder(root='data/raw/Rice_Image_Dataset/Rice_Image_Dataset/', transform=transform)
 
-    # Set seed for reproducibility of train, validation and test datasets
+    # Set seed for reproducibility of train, validation, and test datasets
     torch.manual_seed(0)
-    # Define split sizes
-    train_size = int(0.7 * len(dataset)) # Splits are hardcoded into tests
-    val_size = int(0.15 * len(dataset))
-    test_size = len(dataset) - train_size - val_size
 
-    # Split dataset and save em
+    # Define split sizes
+    train_size = int(0.7 * len(dataset))  # 70% train
+    val_size = int(0.15 * len(dataset))   # 15% validation
+    test_size = len(dataset) - train_size - val_size  # Remaining for test
+
+    # Randomly split the dataset into train, validation, and test
     train_dataset, val_dataset, test_dataset = torch.utils.data.random_split(dataset, [train_size, val_size, test_size])
+
+    # Save the splits
     torch.save(train_dataset, 'data/processed/train_dataset.pt')
     torch.save(val_dataset, 'data/processed/val_dataset.pt')
     torch.save(test_dataset, 'data/processed/test_dataset.pt')
+
 
 
 if __name__ =="__main__":
