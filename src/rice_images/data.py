@@ -54,7 +54,7 @@ def pre_process_data():
     ])
 
     # Load dataset from folder
-    dataset = datasets.ImageFolder(root='data/raw/Rice_Image_Dataset/', transform=transform)
+    dataset = datasets.ImageFolder(root='data/raw/Rice_Image_Dataset/Rice_Image_Dataset/', transform=transform)
 
     # Set seed for reproducibility of train, validation and test datasets
     torch.manual_seed(0)
