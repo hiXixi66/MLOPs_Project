@@ -12,11 +12,10 @@ COPY README.md README.md
 COPY pyproject.toml pyproject.toml
 COPY src/rice_images src/rice_images
 COPY data/ data/
-COPY models/ models/
+COPY models/tester/ models/tester/
 COPY reports/ reports/
-
 
 RUN pip install -r requirements.txt --no-cache-dir --verbose
 RUN pip install . --no-deps --no-cache-dir --verbose
 
-ENTRYPOINT ["python", "-u", "src/rice_images/train.py"]
+ENTRYPOINT ["python", "-u", "src/rice_images/visualize.py"]
