@@ -1,9 +1,10 @@
+import os
+
 import matplotlib.pyplot as plt
 import torch
 import typer
 from rice_images.data import load_data
 from rice_images.model import load_resnet18_timm
-import os
 
 # Set the device
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu")

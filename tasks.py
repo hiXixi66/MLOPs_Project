@@ -1,6 +1,7 @@
 import os
 
-from invoke import Context, task
+from invoke import Context
+from invoke import task
 
 WINDOWS = os.name == "nt"
 PROJECT_NAME = "rice_images"

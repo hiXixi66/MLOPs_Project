@@ -1,6 +1,7 @@
 import torch
-from torchvision import datasets, transforms
 from torch.utils.data import DataLoader
+from torchvision import datasets
+from torchvision import transforms
 
 # Not sure if downloading works...
 # def download_data():
@@ -40,7 +41,7 @@ def load_data():
     train_dataset = torch.load('data/processed/train_dataset.pt')
     val_dataset = torch.load('data/processed/val_dataset.pt')
     test_dataset = torch.load('data/processed/test_dataset.pt')
-    
+
     print(f"Train: {len(train_dataset)}, Validation: {len(val_dataset)}, Test: {len(test_dataset)}")
     return train_dataset, val_dataset, test_dataset
 
@@ -72,5 +73,3 @@ def pre_process_data():
 
 if __name__ =="__main__":
     pre_process_data()
-
-

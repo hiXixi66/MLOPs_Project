@@ -8,8 +8,7 @@ def test_my_dataset():
     assert (len(train_dataset)+len(val_dataset)+len(test_dataset))==75000
 
 if __name__ =="__main__":
-    # testing the data doesn't work without data. 
+    # testing the data doesn't work without data.
     # Data needs to be stored somewhere else so that this test can be run by github. Until then, we will assert true
-    # test_my_dataset() 
+    # test_my_dataset()
     assert True
-
