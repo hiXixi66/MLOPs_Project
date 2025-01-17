@@ -49,4 +49,3 @@ def test_model_invalid_input():
 
 if __name__ == "__main__":
     assert True
-    pytest.main()
