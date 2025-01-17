@@ -26,13 +26,13 @@ def train(cfg: DictConfig):
     model_save_path = cfg.model_save_path
     downsample_train = cfg.downsample_train
 
-    # Create the folder to save model parameters if it doesn't exist in hydra: outputs/_date_/
+    os.chdir(original_wd) # change to original directory to load data
+
+    # Create the folder to save model parameters if it doesn't exist
     os.makedirs(f"models/{model_save_path}", exist_ok=True)
 
     # Load the data
-    os.chdir(original_wd) # change to original directory to load data
     train_dataset, val_dataset, test_dataset = load_data()
-
     # Downsample train_dataset to make the code run faster
     num_samples_train = len(train_dataset) // downsample_train
     downsampled_indices = torch.randperm(len(train_dataset))[:num_samples_train]
@@ -82,16 +82,13 @@ def train(cfg: DictConfig):
 
         # Save model parameters every epoch_save_interval epochs
         if (epoch + 1) % epoch_save_interval == 0:
-            os.chdir(hydra_wd) # switch back to hydra working directory
 
             checkpoint_path = f"models/{model_save_path}/resnet18_epoch_{epoch+1}.pth"
             torch.save(model.state_dict(), checkpoint_path)
             print(f"Model parameters saved at {checkpoint_path}")
 
-            os.chdir(original_wd) # change to original directory to load data
 
     # Save the final trained model
-    os.chdir(hydra_wd) # switch back to hydra working directory
     torch.save(model.state_dict(), f"models/{model_save_path}/resnet18_rice_final.pth")
 
     # Plot statistics
@@ -103,8 +100,8 @@ def train(cfg: DictConfig):
     axs[1].set_title("Train Accuracy")
     axs[1].legend()
     # Save figure
-    os.makedirs(f"reports/figures", exist_ok=True)
-    fig.savefig("reports/figures/training_statistics.png")
+    os.makedirs(f"reports/figures/{model_save_path}", exist_ok=True)
+    fig.savefig(f"reports/figures/{model_save_path}/training_statistics.png")
     print("Training complete and statistics saved.")
 
 

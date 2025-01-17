@@ -5,5 +5,5 @@ lr: 1e-3
 batch_size: 32
 epochs: 2
 epoch_save_interval: 1
-model_save_path: "tester"
+model_save_path: "tester2"
 downsample_train: 10
