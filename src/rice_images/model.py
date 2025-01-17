@@ -5,10 +5,12 @@ import torch.nn as nn
 
 def load_resnet18_timm(num_classes=5):
     """
-    Load a pre-trained ResNet-18 model using timm and modify the final layer for a custom dataset.
+    Load a pre-trained ResNet-18 model using timm and modify the final layer
+    for a custom dataset.
 
     Args:
-        num_classes (int): The number of classes for the final classification layer.
+        num_classes (int):
+            The number of classes for the final classification layer.
 
     Returns:
         torch.nn.Module: The modified ResNet-18 model.

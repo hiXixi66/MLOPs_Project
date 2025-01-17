@@ -14,14 +14,16 @@ DEVICE = torch.device(
 )
 
 
-@hydra.main(config_path="../../configs",
-            config_name="train", version_base="1.1")
+@hydra.main(
+    config_path="../../configs", config_name="train", version_base="1.1"
+)
 def train(cfg: DictConfig):
-    """Train the ResNet-18 model on the rice images dataset and save parameters every epoch_save_interval epochs."""
+    """Train the ResNet-18 model on the rice images dataset and
+    save parameters every epoch_save_interval epochs."""
     print(OmegaConf.to_yaml(cfg))
 
     # Define the working directories of the original script and Hydra's new one
-    hydra_wd = os.getcwd()
+    # hydra_wd = os.getcwd()
     original_wd = hydra.utils.get_original_cwd()
 
     # Explicitly define hyperparameters
@@ -42,7 +44,8 @@ def train(cfg: DictConfig):
     # Downsample train_dataset to make the code run faster
     num_samples_train = len(train_dataset) // downsample_train
     downsampled_indices = torch.randperm(len(train_dataset))[
-        :num_samples_train]
+        :num_samples_train
+    ]
     train_dataset = torch.utils.data.Subset(train_dataset, downsampled_indices)
     num_classes = 5  # There are 5 different grains of rice
 
@@ -53,10 +56,11 @@ def train(cfg: DictConfig):
     train_dataloader = torch.utils.data.DataLoader(
         train_dataset, batch_size=batch_size, shuffle=True
     )
+    """
     val_dataloader = torch.utils.data.DataLoader(
         val_dataset, batch_size=batch_size, shuffle=False
     )
-
+    """
     # Define loss function and optimizer
     loss_fn = torch.nn.CrossEntropyLoss()
     optimizer = torch.optim.Adam(model.parameters(), lr=lr)
@@ -91,18 +95,22 @@ def train(cfg: DictConfig):
 
         print(
             f"Epoch {epoch} completed. Loss: {epoch_loss}, Accuracy: {
-                accuracy * 100:.2f}%")
+                accuracy * 100:.2f}%"
+        )
 
         # Save model parameters every epoch_save_interval epochs
         if (epoch + 1) % epoch_save_interval == 0:
 
-            checkpoint_path = f"models/{model_save_path}/resnet18_epoch_{epoch + 1}.pth"
+            checkpoint_path = (
+                f"models/{model_save_path}/resnet18_epoch_{epoch + 1}.pth"
+            )
             torch.save(model.state_dict(), checkpoint_path)
             print(f"Model parameters saved at {checkpoint_path}")
 
     # Save the final trained model
-    torch.save(model.state_dict(),
-               f"models/{model_save_path}/resnet18_rice_final.pth")
+    torch.save(
+        model.state_dict(), f"models/{model_save_path}/resnet18_rice_final.pth"
+    )
 
     # Plot statistics
     fig, axs = plt.subplots(1, 2, figsize=(15, 5))

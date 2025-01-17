@@ -1,11 +1,10 @@
 import matplotlib.pyplot as plt
 import torch
-import typer
 from sklearn.decomposition import PCA
 from sklearn.manifold import TSNE
 from rice_images.data import load_data
 import sys
-
+# import typer
 from rice_images.model import load_resnet18_timm
 
 

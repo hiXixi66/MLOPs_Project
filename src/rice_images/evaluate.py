@@ -1,11 +1,8 @@
 from __future__ import annotations
-import matplotlib.pyplot as plt
 import torch
 from rice_images.data import load_data
 from rice_images.model import load_resnet18_timm
-from torch import nn
 import sys
-import timm
 
 DATA_PATH = "data/raw"
 DEVICE = torch.device(
