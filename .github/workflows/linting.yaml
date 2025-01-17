@@ -3,10 +3,10 @@ name: Linting
 on:
   push:
     branches:
-      - georgia
+      - main
   pull_request:
     branches:
-      - georgia
+      - main
 
 jobs:
   lint:
