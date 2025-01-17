@@ -30,7 +30,7 @@ jobs:
       - name: Auto-format with autopep8
         run: |
           pip install autopep8
-          autopep8 --in-place --aggressive --aggressive .
+          sudo autopep8 --in-place --aggressive --aggressive .
 
 
       - name: Lint with flake8
