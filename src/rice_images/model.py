@@ -34,7 +34,8 @@ if __name__ == "__main__":
 
     print(f"Model architecture: {model}")
     print(
-        f"Number of parameters: {sum(p.numel() for p in model.parameters())}")
+        f"Number of parameters: {sum(p.numel() for p in model.parameters())}"
+    )
 
     # Test with a dummy input
     dummy_input = torch.randn(1, 3, 224, 224)
