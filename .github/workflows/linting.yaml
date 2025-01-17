@@ -1,0 +1,34 @@
+name: Linting
+
+on:
+  push:
+    branches:
+      - georgia
+  pull_request:
+    branches:
+      - georgia
+
+jobs:
+  lint:
+    runs-on: ${{ matrix.operating-system }}
+    timeout-minutes: 20  # Increase timeout limit to 20 minutes
+    strategy:
+      matrix:
+        operating-system: ["ubuntu-latest", "windows-latest", "macos-latest"]
+        python-version: ["3.12"]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: 'pip'
+
+      - name: Lint with flake8
+        run: |
+          pip install flake8
+          flake8 .
+    continue-on-error: true
