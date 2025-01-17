@@ -1,12 +1,31 @@
 import sys
 import os
 import torch
+import pytest
 
 # Add the src folder to sys.path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../src')))
 
 from rice_images.data import load_data, pre_process_data
 from collections import Counter
+
+# Fixture to load the datasets
+@pytest.fixture(scope="module")
+def datasets():
+    train_dataset, val_dataset, test_dataset = load_data()
+    return train_dataset, val_dataset, test_dataset
+
+@pytest.fixture(scope="module")
+def train_dataset(datasets):
+    return datasets[0]
+
+@pytest.fixture(scope="module")
+def val_dataset(datasets):
+    return datasets[1]
+
+@pytest.fixture(scope="module")
+def test_dataset(datasets):
+    return datasets[2]
 
 # Test the size of the dataset.
 def test_dataset_size(train_dataset, val_dataset, test_dataset):
@@ -54,24 +73,3 @@ def test_data_types(train_dataset):
     for img, label in train_dataset:
         assert isinstance(img, torch.Tensor), "Image is not a tensor"
         assert isinstance(label, int), "Label is not an integer"
-
-
-if __name__ =="__main__":
-    # testing the data doesn't work without data. 
-    # Data needs to be stored somewhere else so that this test can be run by github. Until then, we will assert true
-    # Pre-process the data
-
-    # Load the data
-    train_dataset, val_dataset, test_dataset = load_data()
-    
-    # Perform the data tests
-    test_dataset_size(train_dataset, val_dataset, test_dataset) 
-    test_normalization(train_dataset, val_dataset, test_dataset)
-    test_dimensions(train_dataset, val_dataset, test_dataset)
-    test_label_distribution(train_dataset)
-    #test_no_overlap(train_dataset, val_dataset, test_dataset)
-    test_no_corrupt_data(train_dataset)
-    test_data_types(train_dataset)
-    
-    print("All tests passed!")
-

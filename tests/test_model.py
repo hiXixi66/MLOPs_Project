@@ -1,11 +1,16 @@
 import sys
 import os
 import torch
+import pytest
 
 # Add the src folder to sys.path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../src')))
 
 from rice_images.model import load_resnet18_timm
+
+@pytest.fixture(scope="module")
+def model():
+    return load_resnet18_timm()
 
 # Test the model loading.
 def test_model_loading(model):
@@ -71,17 +76,3 @@ def test_resnet_gradient_flow(model):
 
     for param in model.parameters():
         assert param.grad is not None, "Gradient not computed for a parameter."
-
-if __name__ == "__main__":
-    model = load_resnet18_timm()
-
-    test_model_loading(model)
-    test_resnet_parameter_count(model)
-    test_resnet_forward_pass(model)
-    test_resnet_layer_configuration(model)
-    test_resnet_batchnorm(model)
-    test_resnet_output_range(model)
-    test_resnet_consistency(model)
-    test_resnet_gradient_flow(model)
-
-    print("All tests passed!")
