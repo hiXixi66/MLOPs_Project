@@ -27,10 +27,6 @@ jobs:
           python-version: ${{ matrix.python-version }}
           cache: 'pip'
 
-      - name: Auto-format with autopep8
-        run: |
-          pip install autopep8
-          sudo autopep8 --in-place --aggressive --aggressive .
 
 
       - name: Lint with flake8

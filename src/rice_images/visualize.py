@@ -9,7 +9,9 @@ import sys
 from rice_images.model import load_resnet18_timm
 
 
-def visualize(model_checkpoint: str, figure_name: str = "embeddings.png") -> None:
+def visualize(
+        model_checkpoint: str,
+        figure_name: str = "embeddings.png") -> None:
     """Visualize model predictions."""
     # model = MyAwesomeModel().load_state_dict(torch.load(model_checkpoint))
     model = load_resnet18_timm()

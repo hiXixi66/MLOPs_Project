@@ -14,7 +14,8 @@ DEVICE = torch.device(
 )
 
 
-@hydra.main(config_path="../../configs", config_name="train", version_base="1.1")
+@hydra.main(config_path="../../configs",
+            config_name="train", version_base="1.1")
 def train(cfg: DictConfig):
     """Train the ResNet-18 model on the rice images dataset and save parameters every epoch_save_interval epochs."""
     print(OmegaConf.to_yaml(cfg))
@@ -89,13 +90,13 @@ def train(cfg: DictConfig):
         statistics["train_accuracy"].append(accuracy)
 
         print(
-            f"Epoch {epoch} completed. Loss: {epoch_loss}, Accuracy: {accuracy * 100:.2f}%"
-        )
+            f"Epoch {epoch} completed. Loss: {epoch_loss}, Accuracy: {
+                accuracy * 100:.2f}%")
 
         # Save model parameters every epoch_save_interval epochs
         if (epoch + 1) % epoch_save_interval == 0:
 
-            checkpoint_path = f"models/{model_save_path}/resnet18_epoch_{epoch+1}.pth"
+            checkpoint_path = f"models/{model_save_path}/resnet18_epoch_{epoch + 1}.pth"
             torch.save(model.state_dict(), checkpoint_path)
             print(f"Model parameters saved at {checkpoint_path}")
 

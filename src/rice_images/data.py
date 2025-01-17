@@ -43,8 +43,10 @@ def load_data():
     test_dataset = torch.load("data/processed/test_dataset.pt")
 
     print(
-        f"Train: {len(train_dataset)}, Validation: {len(val_dataset)}, Test: {len(test_dataset)}"
-    )
+        f"Train: {
+            len(train_dataset)}, Validation: {
+            len(val_dataset)}, Test: {
+                len(test_dataset)}")
     return train_dataset, val_dataset, test_dataset
 
 
