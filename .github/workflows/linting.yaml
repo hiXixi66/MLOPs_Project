@@ -11,6 +11,7 @@ on:
 jobs:
   lint:
     runs-on: ${{ matrix.operating-system }}
+    timeout-minutes: 20  # Increase timeout limit to 20 minutes
     strategy:
       matrix:
         operating-system: ["ubuntu-latest", "windows-latest", "macos-latest"]
