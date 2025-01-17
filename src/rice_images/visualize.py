@@ -47,8 +47,8 @@ def visualize(model_checkpoint: str, figure_name: str = "embeddings.png") -> Non
 def main() -> None:
     # typer.run(visualize)
     model_checkpoint = sys.argv[1]
-    visualize(model_checkpoint) 
-    
+    visualize(model_checkpoint)
+
+
 if __name__ == "__main__":
     main()
- 
