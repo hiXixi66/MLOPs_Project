@@ -5,6 +5,7 @@ from rice_images.data import load_data
 from rice_images.model import load_resnet18_timm
 from omegaconf import DictConfig, OmegaConf
 import hydra
+import wandb
 
 # Set the device
 DEVICE = torch.device(
@@ -34,6 +35,18 @@ def train(cfg: DictConfig):
     model_save_path = cfg.model_save_path
     downsample_train = cfg.downsample_train
 
+    wandb.init(
+    project="rice_classification",  # Replace with your W&B project name
+    entity="group-13",  # Replace with your W&B team name
+    config={
+        "learning_rate": lr,
+        "batch_size": batch_size,
+        "epochs": epochs,
+        "model": "ResNet18",
+        "downsample_train": downsample_train,
+        },
+    )
+    
     os.chdir(original_wd)  # change to original directory to load data
 
     # Create the folder to save model parameters if it doesn't exist
@@ -51,7 +64,8 @@ def train(cfg: DictConfig):
 
     # Load the model
     model = load_resnet18_timm(num_classes=num_classes).to(DEVICE)
-
+    wandb.watch(model, log="all", log_freq=100)
+    
     # Create data loaders
     train_dataloader = torch.utils.data.DataLoader(
         train_dataset, batch_size=batch_size, shuffle=True
@@ -98,6 +112,8 @@ def train(cfg: DictConfig):
                 accuracy * 100:.2f}%"
         )
 
+        wandb.log({"epoch": epoch, "train_loss": epoch_loss, "train_accuracy": accuracy})
+       
         # Save model parameters every epoch_save_interval epochs
         if (epoch + 1) % epoch_save_interval == 0:
 
@@ -106,7 +122,8 @@ def train(cfg: DictConfig):
             )
             torch.save(model.state_dict(), checkpoint_path)
             print(f"Model parameters saved at {checkpoint_path}")
-
+            wandb.save(checkpoint_path)  # Log the checkpoint to W&B
+            
     # Save the final trained model
     torch.save(
         model.state_dict(), f"models/{model_save_path}/resnet18_rice_final.pth"
@@ -124,7 +141,10 @@ def train(cfg: DictConfig):
     os.makedirs(f"reports/figures/{model_save_path}", exist_ok=True)
     fig.savefig(f"reports/figures/{model_save_path}/training_statistics.png")
     print("Training complete and statistics saved.")
-
+    wandb.log({
+    "loss_curve": wandb.Image(fig),
+    "accuracy_curve": wandb.Image(fig),
+    })
 
 if __name__ == "__main__":
     train()
