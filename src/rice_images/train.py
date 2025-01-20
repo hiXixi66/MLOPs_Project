@@ -7,15 +7,23 @@ from omegaconf import DictConfig, OmegaConf
 import hydra
 
 # Set the device
-DEVICE = torch.device("cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu")
+DEVICE = torch.device(
+    "cuda"
+    if torch.cuda.is_available()
+    else "mps" if torch.backends.mps.is_available() else "cpu"
+)
 
-@hydra.main(config_path="../../configs", config_name="train", version_base="1.1")
+
+@hydra.main(
+    config_path="../../configs", config_name="train", version_base="1.1"
+)
 def train(cfg: DictConfig):
-    """Train the ResNet-18 model on the rice images dataset and save parameters every epoch_save_interval epochs."""
+    """Train the ResNet-18 model on the rice images dataset and
+    save parameters every epoch_save_interval epochs."""
     print(OmegaConf.to_yaml(cfg))
 
     # Define the working directories of the original script and Hydra's new one
-    hydra_wd = os.getcwd()
+    # hydra_wd = os.getcwd()
     original_wd = hydra.utils.get_original_cwd()
 
     # Explicitly define hyperparameters
@@ -26,7 +34,7 @@ def train(cfg: DictConfig):
     model_save_path = cfg.model_save_path
     downsample_train = cfg.downsample_train
 
-    os.chdir(original_wd) # change to original directory to load data
+    os.chdir(original_wd)  # change to original directory to load data
 
     # Create the folder to save model parameters if it doesn't exist
     os.makedirs(f"models/{model_save_path}", exist_ok=True)
@@ -35,7 +43,9 @@ def train(cfg: DictConfig):
     train_dataset, val_dataset, test_dataset = load_data()
     # Downsample train_dataset to make the code run faster
     num_samples_train = len(train_dataset) // downsample_train
-    downsampled_indices = torch.randperm(len(train_dataset))[:num_samples_train]
+    downsampled_indices = torch.randperm(len(train_dataset))[
+        :num_samples_train
+    ]
     train_dataset = torch.utils.data.Subset(train_dataset, downsampled_indices)
     num_classes = 5  # There are 5 different grains of rice
 
@@ -43,9 +53,14 @@ def train(cfg: DictConfig):
     model = load_resnet18_timm(num_classes=num_classes).to(DEVICE)
 
     # Create data loaders
-    train_dataloader = torch.utils.data.DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
-    val_dataloader = torch.utils.data.DataLoader(val_dataset, batch_size=batch_size, shuffle=False)
-
+    train_dataloader = torch.utils.data.DataLoader(
+        train_dataset, batch_size=batch_size, shuffle=True
+    )
+    """
+    val_dataloader = torch.utils.data.DataLoader(
+        val_dataset, batch_size=batch_size, shuffle=False
+    )
+    """
     # Define loss function and optimizer
     loss_fn = torch.nn.CrossEntropyLoss()
     optimizer = torch.optim.Adam(model.parameters(), lr=lr)
@@ -78,18 +93,24 @@ def train(cfg: DictConfig):
         statistics["train_loss"].append(epoch_loss)
         statistics["train_accuracy"].append(accuracy)
 
-        print(f"Epoch {epoch} completed. Loss: {epoch_loss}, Accuracy: {accuracy * 100:.2f}%")
+        print(
+            f"Epoch {epoch} completed. Loss: {epoch_loss}, Accuracy: {
+                accuracy * 100:.2f}%"
+        )
 
         # Save model parameters every epoch_save_interval epochs
         if (epoch + 1) % epoch_save_interval == 0:
 
-            checkpoint_path = f"models/{model_save_path}/resnet18_epoch_{epoch+1}.pth"
+            checkpoint_path = (
+                f"models/{model_save_path}/resnet18_epoch_{epoch + 1}.pth"
+            )
             torch.save(model.state_dict(), checkpoint_path)
             print(f"Model parameters saved at {checkpoint_path}")
 
-
     # Save the final trained model
-    torch.save(model.state_dict(), f"models/{model_save_path}/resnet18_rice_final.pth")
+    torch.save(
+        model.state_dict(), f"models/{model_save_path}/resnet18_rice_final.pth"
+    )
 
     # Plot statistics
     fig, axs = plt.subplots(1, 2, figsize=(15, 5))

@@ -1,15 +1,17 @@
 import matplotlib.pyplot as plt
 import torch
-import typer
 from sklearn.decomposition import PCA
 from sklearn.manifold import TSNE
 from rice_images.data import load_data
 import sys
 
+# import typer
 from rice_images.model import load_resnet18_timm
 
 
-def visualize(model_checkpoint: str, figure_name: str = "embeddings.png") -> None:
+def visualize(
+    model_checkpoint: str, figure_name: str = "embeddings.png"
+) -> None:
     """Visualize model predictions."""
     # model = MyAwesomeModel().load_state_dict(torch.load(model_checkpoint))
     model = load_resnet18_timm()
@@ -47,8 +49,8 @@ def visualize(model_checkpoint: str, figure_name: str = "embeddings.png") -> Non
 def main() -> None:
     # typer.run(visualize)
     model_checkpoint = sys.argv[1]
-    visualize(model_checkpoint) 
-    
+    visualize(model_checkpoint)
+
+
 if __name__ == "__main__":
     main()
- 
