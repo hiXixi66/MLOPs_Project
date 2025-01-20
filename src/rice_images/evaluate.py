@@ -3,6 +3,7 @@ import torch
 from rice_images.data import load_data
 from rice_images.model import load_resnet18_timm
 import sys
+import wandb
 
 DATA_PATH = "data/raw"
 DEVICE = torch.device(
@@ -19,6 +20,7 @@ def evaluate(model_checkpoint: str) -> None:
     print("Evaluating like my life depended on it")
     print(model_checkpoint)
 
+    wandb.init(project="rice_classification", job_type="evaluation")
     model = load_resnet18_timm().to(DEVICE)
     model.load_state_dict(torch.load(model_checkpoint))
 
@@ -33,7 +35,7 @@ def evaluate(model_checkpoint: str) -> None:
         correct += (y_pred.argmax(dim=1) == target).float().sum().item()
         total += target.size(0)
     print(f"Test accuracy: {correct / total}")
-
+    wandb.log({"test_accuracy": correct / total})
 
 def main():
     model_checkpoint = sys.argv[1]
