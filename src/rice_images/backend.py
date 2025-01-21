@@ -7,46 +7,43 @@ from torchvision import transforms
 import io
 import anyio
 
-# Create the APIRouter
 router = APIRouter()
 
 # Global variables for model and transform
 model = None
 transform = None
 
-# Initialize the model and transform at the module level
+
 def initialize_model():
+    """Initialize the model and transform."""
     global model, transform
 
-    # Define the relative path to the model
-    model_path = os.path.join(
-        os.path.dirname(__file__),
-        "..",
-        "..",
-        "models",
-        "tester2",
-        "resnet18_rice_final.pth",
-    )
+    if model is None or transform is None:  # Initialize only if not already done
+        # Define the relative path to the model
+        model_path = os.path.join(
+            os.path.dirname(__file__),
+            "../../models/tester2/resnet18_rice_final.pth",
+        )
 
-    # Load the model
-    model = load_resnet18_timm(num_classes=5)
-    model.load_state_dict(torch.load(model_path, map_location=torch.device("cpu")))
-    model.eval()
+        # Check if the model file exists
+        if not os.path.exists(model_path):
+            raise FileNotFoundError(f"Model file not found at {model_path}")
 
-    # Define the transform
-    transform = transforms.Compose(
-        [
-            transforms.Resize((250, 250)),  # Resize to 250x250
-            transforms.ToTensor(),  # Convert image to Tensor
-            transforms.Normalize(
-                mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]
-            ),  # Normalize
-        ]
-    )
+        # Load the model
+        model = load_resnet18_timm(num_classes=5)
+        model.load_state_dict(torch.load(model_path, map_location=torch.device("cpu")))
+        model.eval()
 
-
-# Initialize the model and transform when the module is loaded
-initialize_model()
+        # Define the transform
+        transform = transforms.Compose(
+            [
+                transforms.Resize((250, 250)),  # Resize to 250x250
+                transforms.ToTensor(),  # Convert image to Tensor
+                transforms.Normalize(
+                    mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]
+                ),  # Normalize
+            ]
+        )
 
 
 @router.get("/")
@@ -59,6 +56,9 @@ async def root():
 async def classify_image(file: UploadFile = File(...)):
     """Classify image endpoint."""
     try:
+        # Ensure the model is initialized
+        initialize_model()
+
         # Read the image file into memory
         contents = await file.read()
         print(f"Received file {file.filename} with size {len(contents)} bytes.")
