@@ -19,10 +19,11 @@ def evaluate(model_checkpoint: str) -> None:
     """Evaluate a trained model."""
     print("Evaluating like my life depended on it")
     print(model_checkpoint)
-
+    # wandb.login(key="f28dead13ccc819e547217762f6e50dbbbb80bec") # Xixi's key
     wandb.init(project="rice_classification", job_type="evaluation")
     model = load_resnet18_timm().to(DEVICE)
-    model.load_state_dict(torch.load(model_checkpoint))
+    # model.load_state_dict(torch.load(model_checkpoint))
+    model.load_state_dict(torch.load(model_checkpoint, map_location=torch.device('cpu')))
 
     train_dataset, val_dataset, test_dataset = load_data()
     test_dataloader = torch.utils.data.DataLoader(test_dataset, batch_size=32)

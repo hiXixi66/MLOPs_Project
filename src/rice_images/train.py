@@ -34,7 +34,7 @@ def train(cfg: DictConfig):
     epoch_save_interval = cfg.epoch_save_interval
     model_save_path = cfg.model_save_path
     downsample_train = cfg.downsample_train
-
+    # wandb.login(key="f28dead13ccc819e547217762f6e50dbbbb80bec") # Xixi's key
     wandb.init(
     project="rice_classification",  # Replace with your W&B project name
     entity="group-13",  # Replace with your W&B team name

@@ -1,0 +1,1 @@
+python -m cProfile -s cumtime -o profile.txt src/rice_images/train.py
