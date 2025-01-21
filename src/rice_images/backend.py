@@ -56,20 +56,29 @@ async def root():
 async def classify_image(file: UploadFile = File(...)):
     """Classify image endpoint."""
     try:
-        # Ensure the model is initialized
+        # Step 1: Log that the endpoint was hit
+        print("Starting classification process...")
+
+        # Step 2: Ensure the model is initialized
+        print("Initializing model...")
         initialize_model()
 
-        # Read the image file into memory
+        # Step 3: Read the image file into memory
+        print(f"Reading file: {file.filename}")
         contents = await file.read()
-        print(f"Received file {file.filename} with size {len(contents)} bytes.")
+        print(f"File size: {len(contents)} bytes.")
 
-        # Predict the class for the image
+        # Step 4: Predict the class for the image
+        print("Running prediction...")
         probabilities, predicted_class = predict_image(contents)
 
-        # Class names corresponding to the model's outputs
+        # Step 5: Map prediction to class names
+        print(f"Mapping prediction index {predicted_class} to class name.")
         class_names = ["Arborio", "Basmati", "Ipsala", "Jasmine", "Karacadag"]
         prediction = class_names[predicted_class]
 
+        # Step 6: Return the result
+        print(f"Prediction successful: {prediction}")
         return {
             "filename": file.filename,
             "prediction": prediction,
@@ -77,8 +86,9 @@ async def classify_image(file: UploadFile = File(...)):
         }
 
     except Exception as e:
+        # Step 7: Log the error
         print(f"Error during prediction: {str(e)}")
-        raise HTTPException(status_code=500, detail="Internal Server Error")
+        raise HTTPException(status_code=500, detail=f"Internal Server Error: {str(e)}")
 
 
 def predict_image(image_bytes: bytes):
