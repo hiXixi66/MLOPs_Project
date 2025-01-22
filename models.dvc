@@ -2,31 +2,12 @@ outs:
 - hash: md5
   path: models
   files:
-  - relpath: .gitkeep
-    md5: d41d8cd98f00b204e9800998ecf8427e
-    size: 0
-    cloud:
-      remote_storage:
-        etag: 088fd8efe3d8838b031001
-        version_id: '1737355282869263'
-  - relpath: tester/resnet18_epoch_1.pth
-    md5: cc019e1124ccf2a63ba2dfe780ee0e6c
-    size: 44794540
-    cloud:
-      remote_storage:
-        etag: 0885bbf38ad9838b031001
-        version_id: '1737355364720005'
-  - relpath: tester/resnet18_epoch_2.pth
-    md5: 18deb41a55ce153d509e62ef3139d44b
-    size: 44794540
-    cloud:
-      remote_storage:
-        etag: 08b8cde390d9838b031001
-        version_id: '1737355377043128'
-  - relpath: tester/resnet18_rice_final.pth
-    md5: eeaf4616af7dc711f180600a0fa2b739
-    size: 44794918
-    cloud:
-      remote_storage:
-        etag: 089fc2cd8ed9838b031001
-        version_id: '1737355372486943'
+  - relpath: tester2/resnet18_epoch_1.pth
+    md5: 59ddaf47639386a76d3f4e8d0fbea754
+    size: 44795564
+  - relpath: tester2/resnet18_epoch_2.pth
+    md5: 7965976d2863041ac093638b48243a13
+    size: 44795564
+  - relpath: tester2/resnet18_rice_final.pth
+    md5: a900a09c7db30520b5058e76ce54abee
+    size: 44795942
