@@ -1,0 +1,6 @@
+
+docker build -f dockerfiles/train.dockerfile . -t train:latest
+docker run --name experiment1 --rm train:latest 
+
+docker build -f dockerfiles/evaluate.dockerfile . -t evaluate:latest
+docker run --name evaluate --rm evaluate:latest models/tester/resnet18_rice_final.pth
