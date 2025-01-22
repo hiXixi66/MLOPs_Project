@@ -62,7 +62,7 @@ will check the repositories and the code to verify your answers.
 * [Y] Add command line interfaces and project commands to your code where it makes sense (M9)
 * [Y] Construct one or multiple docker files for your code (M10)
 * [Y] Build the docker files locally and make sure they work as intended (M10)
-* [ ] Write one or multiple configurations files for your experiments (M11)
+* [Y] Write one or multiple configurations files for your experiments (M11)
 * [Y] Used Hydra to load the configurations and manage your hyperparameters (M11)
 * [Y] Use profiling to optimize your code (M12)
 * [Y] Use logging to log important events in your code (M14)
@@ -81,9 +81,9 @@ will check the repositories and the code to verify your answers.
 * [Y] Add pre-commit hooks to your version control setup (M18)
 * [ ] Add a continues workflow that triggers when data changes (M19)
 * [ ] Add a continues workflow that triggers when changes to the model registry is made (M19)
-* [ ] Create a data storage in GCP Bucket for your data and link this with your data version control setup (M21)
+* [Y] Create a data storage in GCP Bucket for your data and link this with your data version control setup (M21)
 * [ ] Create a trigger workflow for automatically building your docker images (M21)
-* [ ] Get your model training in GCP using either the Engine or Vertex AI (M21)
+* [Y] Get your model training in GCP using either the Engine or Vertex AI (M21)
 * [Y] Create a FastAPI application that can do inference using your model (M22)
 * [ ] Deploy your model in GCP using either Functions or Run as the backend (M23)
 * [ ] Write API tests for your application and setup continues integration for these (M24)
@@ -127,7 +127,7 @@ will check the repositories and the code to verify your answers.
 >
 > *sXXXXXX, sXXXXXX, sXXXXXX*
 >
-> Answer: 203957, s232253, s232414, s232472, s243075
+> Answer: s203957, s232253, s232414, s232472, s243075
 
 --- question 2 fill here ---
 
@@ -141,7 +141,7 @@ will check the repositories and the code to verify your answers.
 > *We used the third-party framework ... in our project. We used functionality ... and functionality ... from the*
 > *package to do ... and ... in our project*.
 >
-> Answer:
+> Answer: 
 
 --- question 3 fill here ---
 
@@ -161,7 +161,7 @@ will check the repositories and the code to verify your answers.
 > *We used ... for managing our dependencies. The list of dependencies was auto-generated using ... . To get a*
 > *complete copy of our development environment, one would have to run the following commands*
 >
-> Answer:
+> Answer: In order to get the exact same work environment a new team meamber would have to initialize our github repository and then write 'pip install -e .' (I assume they will want developer rights). This will then install all the libraries created for this project (folders with __init__.py files) and install the libraries with the same version as us (assuming we filled in requirements.txt+requirements_dev.txt thouroughly)
 
 --- question 4 fill here ---
 
@@ -177,7 +177,7 @@ will check the repositories and the code to verify your answers.
 > *because we did not use any ... in our project. We have added an ... folder that contains ... for running our*
 > *experiments.*
 >
-> Answer:
+> Answer: From the cookiecutter template we filled out models/ with model parameter weights, configs with the configuration file used to start the training code, src/ with ML code, tests/ with tests for our source code. We created a new folder outputs/ with the configuration files generated from hydra each training run. While the template typically places outputs in directories based on their creation date, we did not utilize this feature to minimize code restructuring. Although this approach worked well for this project, adopting the default structure would be beneficial for longer-term projects in order to minimize chances of overwriting run code.
 
 --- question 5 fill here ---
 
@@ -256,7 +256,7 @@ will check the repositories and the code to verify your answers.
 > *We did make use of DVC in the following way: ... . In the end it helped us in ... for controlling ... part of our*
 > *pipeline*
 >
-> Answer:
+> Answer: We did use dvc to manage our data. While it wasn't necessary for this project as data formatting wasn't explored much and the original source for our data remained active, it does in general make sense to back up your data to a server and use dvc such that if the data was overwritten, the original data could always be recovered.
 
 --- question 10 fill here ---
 
@@ -292,7 +292,13 @@ will check the repositories and the code to verify your answers.
 > Example:
 > *We used a simple argparser, that worked in the following way: Python  my_script.py --lr 1e-3 --batch_size 25*
 >
-> Answer:
+> Answer: We opted to use hydra in order to manage configuration files. The start of src/rice_images/train.py then initialized parameters from the configs/train.yaml. The code could then be run as python src/rice_images/train.py. The requirements for what was in configs/train.yaml can be seen below
+lr: 1e-3
+batch_size: 32
+epochs: 2
+epoch_save_interval: 1
+model_save_path: "tester2"
+downsample_train: 10
 
 --- question 12 fill here ---
 
