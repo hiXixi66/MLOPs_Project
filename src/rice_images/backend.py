@@ -2,7 +2,7 @@ import os
 import torch
 from fastapi import APIRouter, HTTPException, UploadFile, File
 from PIL import Image
-from rice_images.model import load_resnet18_timm
+from model import load_resnet18_timm
 from torchvision import transforms
 import io
 import anyio
