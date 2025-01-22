@@ -33,9 +33,21 @@ outs:
   - relpath: tester2/resnet18_epoch_1.pth
     md5: a7df13d34a6bef2c0bb309b99ceb8131
     size: 44794540
+    cloud:
+      remote_storage:
+        etag: 08ecc6d3e1a9898b031001
+        version_id: '1737548820177772'
   - relpath: tester2/resnet18_epoch_2.pth
     md5: 6d4405469ae6994faf82079ed0f4048c
     size: 44794540
+    cloud:
+      remote_storage:
+        etag: 08e1affce0a9898b031001
+        version_id: '1737548818749409'
   - relpath: tester2/resnet18_rice_final.pth
     md5: b1ec2d5869bbd3f1e3bee1f4d1ed4dc1
     size: 44794918
+    cloud:
+      remote_storage:
+        etag: 08b6df97dca9898b031001
+        version_id: '1737548808712118'
