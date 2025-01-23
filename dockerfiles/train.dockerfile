@@ -14,9 +14,10 @@ COPY src/rice_images src/rice_images
 COPY data/ data/
 COPY models/ models/
 COPY reports/ reports/
+COPY configs/ configs/
 
 
-RUN pip install -r requirements.txt --no-cache-dir --verbose
+RUN --mount=type=cache,target=/root/.cache/pip pip install -r requirements.txt
 RUN pip install . --no-deps --no-cache-dir --verbose
 
 ENTRYPOINT ["python", "-u", "src/rice_images/train.py"]

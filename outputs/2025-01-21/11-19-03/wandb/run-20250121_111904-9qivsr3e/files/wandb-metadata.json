@@ -1,0 +1,42 @@
+{
+  "os":  "macOS-15.0.1-arm64-arm-64bit",
+  "python":  "CPython 3.12.0",
+  "startedAt":  "2025-01-21T10:19:05.015231Z",
+  "program":  "-m cProfile",
+  "git":  {
+    "remote":  "https://github.com/hiXixi66/MLOPs_Project.git",
+    "commit":  "be698e3c35a4b842ebc2497c6b9d1440eb5cf1fd"
+  },
+  "email":  "s232253@dtu.dk",
+  "root":  "/Users/xixiwang/Desktop/DTUcoures/MLOPs_Project/outputs/2025-01-21/11-19-03",
+  "host":  "XixideMacBook-Pro.local",
+  "executable":  "/Users/xixiwang/anaconda3/envs/Xixi/bin/python",
+  "cpu_count":  8,
+  "cpu_count_logical":  8,
+  "disk":  {
+    "/":  {
+      "total":  "494384795648",
+      "used":  "413475078144"
+    },
+    "/System/Volumes/Data":  {
+      "total":  "494384795648",
+      "used":  "413475078144"
+    }
+  },
+  "memory":  {
+    "total":  "17179869184"
+  },
+  "cpu":  {
+    "count":  8,
+    "countLogical":  8
+  },
+  "apple":  {
+    "name":  "Apple M2",
+    "ecpuCores":  4,
+    "pcpuCores":  4,
+    "gpuCores":  10,
+    "memoryGb":  16,
+    "swapTotalBytes":  "4294967296",
+    "ramTotalBytes":  "17179869184"
+  }
+}

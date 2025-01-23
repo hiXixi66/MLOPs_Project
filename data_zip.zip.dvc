@@ -1,0 +1,9 @@
+outs:
+- md5: 87c42784ef583622c20029a202690b96
+  size: 235133024
+  hash: md5
+  path: data_zip.zip
+  cloud:
+    remote_storage:
+      etag: 08bd91aee3d8838b031001
+      version_id: '1737355281795261'
