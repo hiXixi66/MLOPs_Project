@@ -3,10 +3,10 @@ name: Unit Tests
 on:
   push:
     branches:
-      - main
+      - georgia
   pull_request:
     branches:
-      - main
+      - georgia
 
 jobs:
   test:
