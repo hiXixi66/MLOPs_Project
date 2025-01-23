@@ -55,15 +55,8 @@ def main() -> None:
             result = classify_image(image, backend=backend)
 
         if result is not None:
-            st.success("Success! The prediction is ready 🎉")
-            prediction = result["prediction"]
-            # Flatten the probabilities
-            probabilities = result["probabilities"][0]
-
             # Show the image and prediction
             st.image(image, caption="Uploaded Image")
-            st.write("Prediction:", prediction)
-
             # Create a dataframe for plotting the bar chart
             class_names = [
                 "Arborio",
@@ -73,12 +66,31 @@ def main() -> None:
                 "Karacadag",
             ]
             colors = [
-                "#BCB6FF",
-                "#B8E1FF",
-                "#BCE784",
-                "#5DD39E",
-                "#FFC09F",
-            ]  # Custom colors
+                "#BCB6FF",  # Arborio
+                "#B8E1FF",  # Basmati
+                "#BCE784",  # Ipsala
+                "#5DD39E",  # Jasmine
+                "#FFC09F",  # Karacadag
+            ]
+
+            st.success("Success! The prediction is ready 🎉")
+            prediction = result["prediction"]
+            # Flatten the probabilities
+            probabilities = result["probabilities"][0]
+            # Find the color for the predicted class
+            class_color_map = dict(zip(class_names, colors))
+            predicted_color = class_color_map.get(
+                prediction, "#4CAF50"
+            )  # Default color if not found
+
+            font_style = "font-family: 'Poppins'; font-size: 24px;"
+
+            # st.write("Prediction:", prediction)
+            # Display the styled prediction
+            st.markdown(
+                f"<h3 style='text-align: center; {font_style}'>Prediction: <span style='color: {predicted_color};'>{prediction}</span></h3>",
+                unsafe_allow_html=True,
+            )
 
             # Prepare DataFrame
             probability_data = {
