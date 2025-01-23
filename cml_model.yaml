@@ -1,0 +1,15 @@
+name: Model Registry Change Workflow
+on:
+  workflow_dispatch:
+jobs:
+  model-update:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+      - name: Fetch Model from Registry
+        run: python fetch_model.py --model-name=my_model
+      - name: Validate Model
+        run: python validate_model.py --model-path=model.pkl
+      - name: Deploy Model
+        run: python deploy_model.py --model-path=model.pkl
