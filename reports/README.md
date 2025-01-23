@@ -74,13 +74,13 @@ will check the repositories and the code to verify your answers.
 
 * [Y] Write unit tests related to the data part of your code (M16)
 * [Y] Write unit tests related to model construction and or model training (M16)
-* [ ] Calculate the code coverage (M16)
+* [Y] Calculate the code coverage (M16)
 * [Y] Get some continuous integration running on the GitHub repository (M17)
 * [ ] Add caching and multi-os/python/pytorch testing to your continuous integration (M17)
 * [Y] Add a linting step to your continuous integration (M17)
 * [Y] Add pre-commit hooks to your version control setup (M18)
-* [ ] Add a continues workflow that triggers when data changes (M19)
-* [ ] Add a continues workflow that triggers when changes to the model registry is made (M19)
+* [Y] Add a continues workflow that triggers when data changes (M19)
+* [Y] Add a continues workflow that triggers when changes to the model registry is made (M19)
 * [Y] Create a data storage in GCP Bucket for your data and link this with your data version control setup (M21)
 * [ ] Create a trigger workflow for automatically building your docker images (M21)
 * [Y] Get your model training in GCP using either the Engine or Vertex AI (M21)
@@ -211,7 +211,20 @@ will check the repositories and the code to verify your answers.
 > *In total we have implemented X tests. Primarily we are testing ... and ... as these the most critical parts of our*
 > *application but also ... .*
 >
-> Answer:
+> Answer: In total, we have implemented 103 tests. Primarily, we are testing data processing functions (e.g., ensuring correct handling of various data input scenarios) and model-related functions (e.g., verifying the model's training and inference behavior), as these are the most critical parts of our application.
+Name                          Stmts   Miss  Cover   Missing
+-----------------------------------------------------------
+src/rice_images/__init__.py       0      0   100%
+src/rice_images/data.py          40     26    35%   13-37, 61-92, 97
+src/rice_images/model.py         16      7    56%   33-44
+tests/__init__.py                 0      0   100%
+tests/test_api.py                 0      0   100%
+tests/test_data.py               53      2    96%   97-98
+tests/test_model.py              50      0   100%
+-----------------------------------------------------------
+TOTAL                           159     35    78%
+
+
 
 --- question 7 fill here ---
 
@@ -226,7 +239,9 @@ will check the repositories and the code to verify your answers.
 > *The total code coverage of code is X%, which includes all our source code. We are far from 100% coverage of our **
 > *code and even if we were then...*
 >
-> Answer:
+> Answer: The total code coverage of our project is 78%, which includes all our source code and tests. While this represents a strong level of coverage, we are still far from achieving 100%. Even if we were to achieve 100% code coverage, it would not guarantee that the code is error-free. 
+Covered Statements = 159 - 35 = 124
+Coverage (%)=( 159 / 124 )×100≈77.99% ( 78%)
 
 --- question 8 fill here ---
 
