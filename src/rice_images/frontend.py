@@ -55,7 +55,7 @@ def main() -> None:
             result = classify_image(image, backend=backend)
 
         if result is not None:
-
+            st.success("Success! The prediction is ready 🎉")
             prediction = result["prediction"]
             # Flatten the probabilities
             probabilities = result["probabilities"][0]
@@ -107,7 +107,10 @@ def main() -> None:
                 container.altair_chart(chart, use_container_width=True)
 
         else:
-            st.write("Failed to get prediction")
+            st.error(
+                "We encountered an issue. Please check your input or try later.",
+                icon="🚨",
+            )
 
 
 if __name__ == "__main__":
