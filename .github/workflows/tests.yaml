@@ -32,6 +32,9 @@ jobs:
           pip install -e .[dev]
           pip install -r requirements.txt
 
+      - name: Get data
+        run: |
+          dvc pull data.dsv
 
       - name: Run tests & coverage
         run: |
