@@ -56,7 +56,8 @@ def main() -> None:
 
         if result is not None:
             # Show the image and prediction
-            st.image(image, caption="Uploaded Image")
+            with st.expander("View upload..."):
+                st.image(image, caption="Uploaded Image")
             # Create a dataframe for plotting the bar chart
             class_names = [
                 "Arborio",
@@ -73,7 +74,7 @@ def main() -> None:
                 "#FFC09F",  # Karacadag
             ]
 
-            st.success("Success! The prediction is ready 🎉")
+            st.success("Success!! 🎉")
             prediction = result["prediction"]
             # Flatten the probabilities
             probabilities = result["probabilities"][0]
