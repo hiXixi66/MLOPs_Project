@@ -13,3 +13,4 @@ pytest == 8.3.4
 autopep8 == 2.3.2
 black==24.10.0
 wandb==0.19.4
+dvc == 3.59.0
