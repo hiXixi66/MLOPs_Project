@@ -5,7 +5,6 @@ import requests
 import streamlit as st
 from google.cloud import run_v2
 import altair as alt
-from streamlit_extras.let_it_rain import rain
 
 
 @st.cache_resource
@@ -102,9 +101,10 @@ def main() -> None:
                 .properties(width=600, height=400, title="Class Predictions")
             )
 
-            container = st.container(border=True)
-            # Display the chart in Streamlit
-            container.altair_chart(chart, use_container_width=True)
+            with st.expander("Class Probabilities: Detailed View"):
+                container = st.container(border=True)
+                # Display the chart in Streamlit
+                container.altair_chart(chart, use_container_width=True)
 
         else:
             st.write("Failed to get prediction")
