@@ -34,5 +34,5 @@ jobs:
 
       - name: Run tests & coverage
         run: |
-          coverage run -m pytest tests/test_model.py
+          coverage run -m pytest --cov=my_project/model --no-cov=/path/to/external/module tests/test_model.py
           coverage report -m
