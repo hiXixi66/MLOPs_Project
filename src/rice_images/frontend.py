@@ -4,6 +4,7 @@ import pandas as pd
 import requests
 import streamlit as st
 from google.cloud import run_v2
+import altair as alt
 
 
 @st.cache_resource
@@ -42,7 +43,7 @@ def main() -> None:
         msg = "Backend service not found"
         raise ValueError(msg)
 
-    st.title("Image Classification")
+    st.title("Rice Image Classification")
 
     uploaded_file = st.file_uploader(
         "Upload an image", type=["jpg", "jpeg", "png"]
@@ -50,7 +51,8 @@ def main() -> None:
 
     if uploaded_file is not None:
         image = uploaded_file.read()
-        result = classify_image(image, backend=backend)
+        with st.spinner("Classifying your image..."):
+            result = classify_image(image, backend=backend)
 
         if result is not None:
             prediction = result["prediction"]
@@ -69,17 +71,38 @@ def main() -> None:
                 "Jasmine",
                 "Karacadag",
             ]
+            colors = [
+                "#BCB6FF",
+                "#B8E1FF",
+                "#BCE784",
+                "#5DD39E",
+                "#FFC09F",
+            ]  # Custom colors
+
+            # Prepare DataFrame
             probability_data = {
-                class_names[i]: probabilities[i]
-                for i in range(len(class_names))
+                "Class": class_names,
+                "Probability": probabilities,
+                "Color": colors,
             }
-            df = pd.DataFrame(
-                list(probability_data.items()),
-                columns=["Class", "Probability"],
+            df = pd.DataFrame(probability_data)
+
+            # Create Altair chart
+            chart = (
+                alt.Chart(df)
+                .mark_bar()
+                .encode(
+                    # Sort bars by class order
+                    x=alt.X("Class", sort=class_names, title="Class"),
+                    y=alt.Y("Probability", title="Probability"),
+                    color=alt.Color("Color", scale=None),  # Use custom colors
+                )
+                .properties(width=600, height=400, title="Class Predictions")
             )
 
-            # Display the bar chart with Class names on x-axis and Probability on y-axis
-            st.bar_chart(df.set_index("Class")["Probability"])
+            # Display the chart in Streamlit
+            st.altair_chart(chart, use_container_width=True)
+
         else:
             st.write("Failed to get prediction")
 
