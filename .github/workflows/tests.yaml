@@ -33,17 +33,9 @@ jobs:
           pip install -r requirements.txt
 
       - name: Setup DVC and Cache
-        uses: actions/composite@v2
-        steps:
-          - uses: iterative/setup-dvc@v1
-          - uses: actions/cache@v3
-            with:
-              path: ~/.dvc/cache
-              key: ${{ runner.os }}-dvc-${{ hashFiles('dvc.lock') }}
-              restore-keys:
-                - ${{ runner.os }}-dvc-
+        uses: ./.github/actions/setup-dvc-and-cache
 
-      - name: Get data
+      - name: Pull DVC data
         run: dvc pull
 
       - name: Run tests & coverage
