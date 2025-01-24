@@ -116,9 +116,9 @@ will check the repositories and the code to verify your answers.
 ### Question 1
 > **Enter the group number you signed up on <learn.inside.dtu.dk>**
 >
-> Answer: 18
+> Answer: 
 
---- question 1 fill here ---
+18
 
 ### Question 2
 > **Enter the study number for each member in the group**
@@ -127,9 +127,9 @@ will check the repositories and the code to verify your answers.
 >
 > *sXXXXXX, sXXXXXX, sXXXXXX*
 >
-> Answer: s203957, s232253, s232414, s232472, s243075
+> Answer: 
 
---- question 2 fill here ---
+s203957, s232253, s232414, s232472, s243075
 
 ### Question 3
 > **A requirement to the project is that you include a third-party package not covered in the course. What framework**
@@ -161,9 +161,9 @@ will check the repositories and the code to verify your answers.
 > *We used ... for managing our dependencies. The list of dependencies was auto-generated using ... . To get a*
 > *complete copy of our development environment, one would have to run the following commands*
 >
-> Answer: In order to get the exact same work environment a new team meamber would have to initialize our github repository and then write 'pip install -e .' (I assume they will want developer rights). This will then install all the libraries created for this project (folders with __init__.py files) and install the libraries with the same version as us (assuming we filled in requirements.txt+requirements_dev.txt thouroughly)
+> Answer: 
 
---- question 4 fill here ---
+In order to get the exact same work environment a new team meamber would have to initialize our github repository and then write 'pip install -e .' (I assume they will want developer rights). This will then install all the libraries created for this project (folders with __init__.py files) and install the libraries with the same version as us (assuming we filled in requirements.txt+requirements_dev.txt thouroughly)
 
 ### Question 5
 
@@ -211,7 +211,11 @@ will check the repositories and the code to verify your answers.
 > *In total we have implemented X tests. Primarily we are testing ... and ... as these the most critical parts of our*
 > *application but also ... .*
 >
-> Answer: In total, we have implemented 103 tests. Primarily, we are testing data processing functions (e.g., ensuring correct handling of various data input scenarios) and model-related functions (e.g., verifying the model's training and inference behavior), as these are the most critical parts of our application.
+> Answer: 
+
+
+
+In total, we have implemented 103 tests. Primarily, we are testing data processing functions (e.g., ensuring correct handling of various data input scenarios) and model-related functions (e.g., verifying the model's training and inference behavior), as these are the most critical parts of our application.
 Name                          Stmts   Miss  Cover   Missing
 -----------------------------------------------------------
 src/rice_images/__init__.py       0      0   100%
@@ -224,10 +228,6 @@ tests/test_model.py              50      0   100%
 -----------------------------------------------------------
 TOTAL                           159     35    78%
 
-
-
---- question 7 fill here ---
-
 ### Question 8
 
 > **What is the total code coverage (in percentage) of your code? If your code had a code coverage of 100% (or close**
@@ -239,11 +239,11 @@ TOTAL                           159     35    78%
 > *The total code coverage of code is X%, which includes all our source code. We are far from 100% coverage of our **
 > *code and even if we were then...*
 >
-> Answer: The total code coverage of our project is 78%, which includes all our source code and tests. While this represents a strong level of coverage, we are still far from achieving 100%. Even if we were to achieve 100% code coverage, it would not guarantee that the code is error-free. 
+> Answer: 
+
+The total code coverage of our project is 78%, which includes all our source code and tests. While this represents a strong level of coverage, we are still far from achieving 100%. Even if we were to achieve 100% code coverage, it would not guarantee that the code is error-free. 
 Covered Statements = 159 - 35 = 124
 Coverage (%)=( 159 / 124 )×100≈77.99% ( 78%)
-
---- question 8 fill here ---
 
 ### Question 9
 
@@ -271,9 +271,9 @@ Coverage (%)=( 159 / 124 )×100≈77.99% ( 78%)
 > *We did make use of DVC in the following way: ... . In the end it helped us in ... for controlling ... part of our*
 > *pipeline*
 >
-> Answer: We did use dvc to manage our data. While it wasn't necessary for this project as data formatting wasn't explored much and the original source for our data remained active, it does in general make sense to back up your data to a server and use dvc such that if the data was overwritten, the original data could always be recovered.
+> Answer: 
 
---- question 10 fill here ---
+We did use dvc to manage our data. While it wasn't necessary for this project as data formatting wasn't explored much and the original source for our data remained active, it does in general make sense to back up your data to a server and use dvc such that if the data was overwritten, the original data could always be recovered.
 
 ### Question 11
 
@@ -307,15 +307,9 @@ Coverage (%)=( 159 / 124 )×100≈77.99% ( 78%)
 > Example:
 > *We used a simple argparser, that worked in the following way: Python  my_script.py --lr 1e-3 --batch_size 25*
 >
-> Answer: We opted to use hydra in order to manage configuration files. The start of src/rice_images/train.py then initialized parameters from the configs/train.yaml. The code could then be run as python src/rice_images/train.py. The requirements for what was in configs/train.yaml can be seen below
-lr: 1e-3
-batch_size: 32
-epochs: 2
-epoch_save_interval: 1
-model_save_path: "tester2"
-downsample_train: 10
+> Answer: 
 
---- question 12 fill here ---
+We used hydra to manage configurations such as hyperparmeters. The code would be run by using python src/rice_images/train.py and the configuration for the run would be saved in outputs/<date>/... The hyperparameters could be altered by changing the values in configs/train.yaml.
 
 ### Question 13
 
@@ -330,7 +324,8 @@ downsample_train: 10
 >
 > Answer:
 
---- question 13 fill here ---
+We made use of config files. Whenever an experiment was run a config file would be generated. In order to reproduce the experiment one could reuse the config file from that experiment by running the code with this config file. Feks python src/rice_images/train.py --config-path ../../outputs/2025-01-17/08-41-56/.hydra --config-name config.yaml
+
 
 ### Question 14
 
@@ -394,7 +389,7 @@ downsample_train: 10
 >
 > Answer:
 
---- question 17 fill here ---
+We used engine, bucket and cloud function. Bucket was used for data storage with version control. Engine was used for training the model (just to try it. It wasn't part of our procedure). Engine and functions were both used to deploy the function. We ended up preffering engine as it was easier...
 
 ### Question 18
 
@@ -418,7 +413,7 @@ downsample_train: 10
 >
 > Answer:
 
---- question 19 fill here ---
+[this figure](figures/q19_bucket.png).
 
 ### Question 20
 
