@@ -431,6 +431,7 @@ We used engine, bucket and cloud function. Bucket was used for data storage with
 [Data bucket](figures/q19_bucket.png).
 
 [Frontend-backend bucket](figures/frontend_backend_bucket.png).
+
 ### Question 20
 
 > **Upload 1-2 images of your GCP artifact registry, such that we can see the different docker images that you have**
@@ -439,6 +440,7 @@ We used engine, bucket and cloud function. Bucket was used for data storage with
 > Answer:
 
 [Frontend-backend registry](figures/artifact_registryFB.png).
+
 --- question 20 fill here ---
 
 ### Question 21
@@ -446,7 +448,7 @@ We used engine, bucket and cloud function. Bucket was used for data storage with
 > **Upload 1-2 images of your GCP cloud build history, so we can see the history of the images that have been build in**
 > **your project. You can take inspiration from [this figure](figures/build.png).**
 >
-> Answer:
+> Answer: [Frontrnd-Backend build](figures/build_fb.png).
 
 --- question 21 fill here ---
 
