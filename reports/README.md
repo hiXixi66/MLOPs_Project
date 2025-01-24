@@ -598,6 +598,7 @@ We did not manage to implement monitoring for our deployed model due to time con
 --- question 27 fill here --- -everyone write what you spend from Billing
 Viktor: 7eur on Compute Engine; 6 eur on Cloud Storage.
 Alexandru: 3 eur on Compute Engine
+Georgia: 1.55 eur on Cloud Run
 
 ### Question 28
 
