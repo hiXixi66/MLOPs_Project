@@ -214,6 +214,8 @@ To ensure that our project contained readable and reproducible code we used pep8
 > Answer:
 
 In total, we have implemented 103 tests. Primarily, we are testing data processing functions (e.g., ensuring correct handling of various data input scenarios) and model-related functions (e.g., verifying the model's training and inference behavior), as these are the most critical parts of our application.
+
+<pre>
 Name                          Stmts   Miss  Cover   Missing
 -----------------------------------------------------------
 src/rice_images/__init__.py       0      0   100%
@@ -225,7 +227,7 @@ tests/test_data.py               53      2    96%   97-98
 tests/test_model.py              50      0   100%
 -----------------------------------------------------------
 TOTAL                           159     35    78%
-
+</pre>
 ### Question 8
 
 > **What is the total code coverage (in percentage) of your code? If your code had a code coverage of 100% (or close**
