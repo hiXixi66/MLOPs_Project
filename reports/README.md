@@ -448,7 +448,7 @@ We used engine, bucket and cloud function. Bucket was used for data storage with
 >
 > Answer:
 
---- question 18 fill here --- -viktor
+We didn't use the Compute Engine with VMs very much. We figured out how to upload and run the code on the VMs but took them down again as soon as our scripts were done, to free up computer resources and save money. When we did use them, hardware was picked close to us (Berlin) and simple CPU architecture was utilized as our code was not trained for performance. The Cloud Run was used to deploy our model and thus we spent most of our time with this service.
 
 ### Question 19
 
@@ -494,7 +494,7 @@ We used engine, bucket and cloud function. Bucket was used for data storage with
 >
 > Answer:
 
---- question 22 fill here --- -viktor
+We managed to complete a training run in the Compute Engine. We did this by connecting to the VM terminal through SSH. Then we installed Python3.12 (requirement from our TOML). Then we cloned the directory into the VM. Lastly the libraries and dependencies were installed as 'pip install -e .'. From there the training python file could be run as normal via CLI inputs like 'python src/rice_images/train.py --lr 1e-4'
 
 ## Deployment
 
@@ -581,6 +581,7 @@ We created a test_api.py file which included two tests where we utilized pytest 
 > Answer:
 
 --- question 27 fill here --- -everyone write what you spend from Billing 
+Viktor: 7eur on Compute Engine; 6 eur on Cloud Storage.
 
 ### Question 28
 
@@ -667,4 +668,3 @@ easiest: building the template with cookiecutter
 --- question 31 fill here --- -Write what you did each person
 Student s232253 was in charge of writing evaluate.py, visualize.py locally, and making dockerfiles for train.py and evaluate.py locally, and then profiling and logging. Then calculate the code coverage and add continues workflows.
 
--viktor to update the readme from beginning.
