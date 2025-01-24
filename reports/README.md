@@ -448,7 +448,7 @@ We used engine, bucket and cloud function. Bucket was used for data storage with
 >
 > Answer:
 
---- question 18 fill here ---
+--- question 18 fill here --- -viktor
 
 ### Question 19
 
@@ -494,7 +494,7 @@ We used engine, bucket and cloud function. Bucket was used for data storage with
 >
 > Answer:
 
---- question 22 fill here ---
+--- question 22 fill here --- -viktor
 
 ## Deployment
 
@@ -561,7 +561,7 @@ We created a test_api.py file which included two tests where we utilized pytest 
 >
 > Answer:
 
---- question 26 fill here ---
+--- question 26 fill here --- -andu
 
 ## Overall discussion of project
 
@@ -580,7 +580,7 @@ We created a test_api.py file which included two tests where we utilized pytest 
 >
 > Answer:
 
---- question 27 fill here ---
+--- question 27 fill here --- -everyone write what you spend from Billing 
 
 ### Question 28
 
@@ -619,7 +619,7 @@ A plot illustrating the probability distribution for each class
 >
 > Answer:
 
---- question 29 fill here ---
+--- question 29 fill here --- -Xixi
 
 ### Question 30
 
@@ -633,7 +633,15 @@ A plot illustrating the probability distribution for each class
 >
 > Answer:
 
---- question 30 fill here ---
+Georgia to merge::
+
+hardest: deploying model in GCP
+dvc in Bucket
+setting up an environment to be shared across team
+building yaml trigger workflow
+building dockerfiles
+wandb setup was easy
+easiest: building the template with cookiecutter
 
 ### Question 31
 
@@ -650,4 +658,7 @@ A plot illustrating the probability distribution for each class
 >
 > Answer:
 
---- question 31 fill here ---
+--- question 31 fill here --- -Write what you did each person
+
+
+-viktor to update the readme from beginning.
