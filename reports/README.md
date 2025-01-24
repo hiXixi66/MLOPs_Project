@@ -361,8 +361,9 @@ We made use of config files. Whenever an experiment was run a config file would 
 > *For our project we developed several images: one for training, inference and deployment. For example to run the*
 > *training docker image: `docker run trainer:latest lr=1e-3 batch_size=64`. Link to docker file: <weblink>*
 >
->
-Answer: We use Docker and the Docker Engine to containerize various parts of our project, including API, backend, evaluation, frontend, and training components. Each component has a Dockerfile defining its environment. These Dockerfiles specify a base image, install necessary dependencies, copy project files, and define the startup command.
+>Answer:
+
+We use Docker and the Docker Engine to containerize various parts of our project, including API, backend, evaluation, frontend, and training components. Each component has a Dockerfile defining its environment. These Dockerfiles specify a base image, install necessary dependencies, copy project files, and define the startup command.
 
 To build our Docker images, we use the docker build command. Specifically: `docker build -t backend . -f backend.dockerfile .`. This builds the backend image.
 
@@ -373,7 +374,7 @@ These commands ensure consistent and isolated environments for each component of
 
 This is the link for the dockerfiles: [Dockerfiles](https://github.com/hiXixi66/MLOPs_Project/tree/main/dockerfiles)
 
---- question 15 fill here ---
+
 
 ### Question 16
 
@@ -442,7 +443,7 @@ We used engine, bucket and cloud function. Bucket was used for data storage with
 
 [Frontend-backend registry](figures/artifact_registryFB.png).
 
---- question 20 fill here ---
+
 
 ### Question 21
 
@@ -451,7 +452,7 @@ We used engine, bucket and cloud function. Bucket was used for data storage with
 >
 > Answer: [Frontrnd-Backend build](figures/build_fb.png).
 
---- question 21 fill here ---
+
 
 ### Question 22
 
@@ -571,11 +572,10 @@ In addition to the backend API, we also created a frontend application to provid
 
 The purpose of the frontend is to allow users to easily upload images of rice. Once uploaded, the frontend sends the image to the backend API for classification. The API then analyzes the image and returns the predicted classification along with the probability distribution of all possible classes. The frontend presents this information to the user in a clear and understandable way, typically including:
 
-    The predicted class label
-    A visual representation of the image
-    A plot illustrating the probability distribution for each class
+The predicted class label
+A visual representation of the image
+A plot illustrating the probability distribution for each class
 
---- question 28 fill here ---
 
 ### Question 29
 
