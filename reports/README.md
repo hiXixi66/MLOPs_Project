@@ -410,7 +410,11 @@ This is the link for the dockerfiles: [Dockerfiles](https://github.com/hiXixi66/
 > *Debugging method was dependent on group member. Some just used ... and others used ... . We did a single profiling*
 > *run of our main code at some point that showed ...*
 >
-> Answer:
+> Answer: 
+
+Debugging methods varied based on the issue encountered during the experiments. For instance, when facing unexpected errors or suboptimal performance, I relied on tools such as logging, assertion checks, and interactive debugging (e.g., using `pdb`). For computational bottlenecks or performance optimization, I conducted profiling to analyze resource usage and identify inefficiencies. 
+
+We used PyTorch’s `torch.profiler` to profile the model during execution. This involved capturing CPU activities, recording tensor shapes, and analyzing call stacks to pinpoint areas of high resource consumption. Additionally, I leveraged TensorBoard visualization through the `tensorboard_trace_handler` to gain insights into model behavior and optimize specific parts of the code. For example, the profiling revealed whether the model was spending excessive time in certain layers or operations, allowing for targeted optimizations.
 
 --- question 16 fill here ---
 
