@@ -428,8 +428,9 @@ We used engine, bucket and cloud function. Bucket was used for data storage with
 >
 > Answer:
 
-[this figure](figures/q19_bucket.png).
+[Data bucket](figures/q19_bucket.png).
 
+[Frontend-backend bucket](figures/frontend_backend_bucket.png)
 ### Question 20
 
 > **Upload 1-2 images of your GCP artifact registry, such that we can see the different docker images that you have**
