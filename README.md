@@ -11,27 +11,49 @@ The directory structure of the project looks like this:
 │   └── workflows/
 │       └── tests.yaml
 ├── configs/                  # Configuration files
+│   ├── train.yaml
 ├── data/                     # Data directory
 │   ├── processed
 │   └── raw
 ├── dockerfiles/              # Dockerfiles
 │   ├── api.Dockerfile
+│   └── backend.Dockerfile
+│   └── evaluate.Dockerfile
+│   └── frontend.Dockerfile
+│   └── run-command.txt
 │   └── train.Dockerfile
 ├── docs/                     # Documentation
 │   ├── mkdocs.yml
 │   └── source/
 │       └── index.md
 ├── models/                   # Trained models
+│   ├── tester/
+│   └── tester2/
 ├── notebooks/                # Jupyter notebooks
+├── outputs/                  # logs for experiments run
+│   ├── 2025-01-16/
+│       └── 15-16-06/
+│           └── .hydra/
+│           └── train.log
+│   └── 2025-01-17/
+│   └── 2025-01-21/
+│   └── 2025-01-24/
 ├── reports/                  # Reports
 │   └── figures/
+│       └── tester/
+│           └── training_statistics.png
+│       └── tester2/
+│   └── README.md
+│   └── report.py
 ├── src/                      # Source code
-│   ├── project_name/
+│   ├── rice_images/
 │   │   ├── __init__.py
 │   │   ├── api.py
+│   │   ├── backend.py
 │   │   ├── data.py
 │   │   ├── evaluate.py
-│   │   ├── models.py
+│   │   ├── frontend.py
+│   │   ├── model.py
 │   │   ├── train.py
 │   │   └── visualize.py
 └── tests/                    # Tests
@@ -39,11 +61,21 @@ The directory structure of the project looks like this:
 │   ├── test_api.py
 │   ├── test_data.py
 │   └── test_model.py
+├── .coveragerc
+├── .dvcignore
 ├── .gitignore
 ├── .pre-commit-config.yaml
+├── cml_data.yaml
+├── cml_model.yaml
+├── data_tester.dvc
+├── data_zip.zip.dvc
+├── data.dvc
 ├── LICENSE
+├── models.dvc
 ├── pyproject.toml            # Python project file
 ├── README.md                 # Project README
+├── requirements_backend.txt  # requirements for src/rice_images/backend.py
+├── requirements_frontend.txt  # requirements for src/rice_images/frontend.py
 ├── requirements.txt          # Project requirements
 ├── requirements_dev.txt      # Development requirements
 └── tasks.py                  # Project tasks
