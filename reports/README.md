@@ -669,4 +669,6 @@ easiest: building the template with cookiecutter
 
 --- question 31 fill here --- -Write what you did each person
 Student s232253 was in charge of writing evaluate.py, visualize.py locally, and making dockerfiles for train.py and evaluate.py locally, and then profiling and logging. Then calculate the code coverage and add continues workflows.
+Student s203957 created tempplate, wrote train.py, data.py. In charge of sharing the data via DVC using buckets. Managed to run train.py on GCP VM, but didn't save the results...
+
 
