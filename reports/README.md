@@ -143,7 +143,7 @@ s203957, s232253, s232414, s232472, s243075
 >
 > Answer:
 
---- question 3 fill here ---
+We used the third-party framework timm (PyTorch Image Models) in our project. We utilized its functionality to load a pre-trained ResNet-18 model and fine-tune it for our rice classification task. The timm.create_model function allowed us to efficiently load and modify the ResNet-18 architecture, replacing its fully connected layer to adapt it to our custom dataset with five rice classes. The pre-trained weights from timm accelerated the training process by providing a strong starting point, enabling faster convergence and improved performance compared to training a model from scratch. Additionally, with the framework’s flexibility, it is easy to experiment with other architectures with minimal effort.
 
 ## Coding environment
 
@@ -371,7 +371,22 @@ We made use of config files. Whenever an experiment was run a config file would 
 >
 > Answer:
 
---- question 14 fill here ---
+[Training Loss, Accuracy, and Epoch Tracking](figures/wandb1.png).
+[Gradient Visualization](figures/wandb2.png).
+[Parameter Visualization](figures/wandb3.png).
+
+In our project, we used Weights & Biases (W&B) to track various metrics and parameters during training and evaluation. These metrics helped us monitor the model’s performance in real time and ensured that our experiments were reproducible and well-documented.
+
+Screenshot 1: Training Loss, Accuracy, and Epoch Tracking
+This screenshot shows graphs for train_loss, train_accuracy, and epoch.train_loss indicates how well the model is minimizing the loss function during training. A decreasing loss reflects the model’s ability to fit the training data. train_accuracy shows how well the model is classifying the training dataset, with accuracy steadily improving over epochs. Epoch tracking provides context for how the model’s performance evolves as training progresses, allowing us to adjust hyperparameters if necessary. These metrics are critical for identifying issues like overfitting or underfitting early in the training process.
+
+Screenshot 2: Gradient Visualization
+This screenshot highlights gradient updates for various layers in the model. Monitoring gradients helps ensure that the learning process is stable. Large or vanishing gradients could signal problems with the optimization process, such as exploding or vanishing gradients.
+
+Screenshot 3: Parameter Visualization
+This screenshot shows parameter distributions for layers. Tracking parameter updates is vital for ensuring that the model’s weights are learning meaningful patterns. It also helps diagnose problems like weights being stuck at initialization or diverging during training.
+
+W&B allowed us to centralize experiment tracking, facilitating collaboration and reproducibility in our workflow.
 
 ### Question 15
 
@@ -561,7 +576,7 @@ We created a test_api.py file which included two tests where we utilized pytest 
 >
 > Answer:
 
---- question 26 fill here --- -andu
+We did not manage to implement monitoring for our deployed model due to time constraints and the additional complexity of setting up a monitoring system. Our focus was primarily on developing and training the model, as well as ensuring that the deployment pipeline functioned as intended. However, we recognize the importance of monitoring and how it could significantly improve our application. Monitoring would allow us to track critical metrics for the system (e.g., latency, throughput, and resource usage). Over time, this data would help us detect issues such as data drift, where the incoming data distribution differs from the training data, potentially degrading model performance. It would also enable us to identify operational bottlenecks, such as increased inference time or GPU usage, and respond proactively.
 
 ## Overall discussion of project
 
@@ -582,6 +597,7 @@ We created a test_api.py file which included two tests where we utilized pytest 
 
 --- question 27 fill here --- -everyone write what you spend from Billing 
 Viktor: 7eur on Compute Engine; 6 eur on Cloud Storage.
+Alexandru: 3 eur on Compute Engine
 
 ### Question 28
 
@@ -667,4 +683,4 @@ easiest: building the template with cookiecutter
 
 --- question 31 fill here --- -Write what you did each person
 Student s232253 was in charge of writing evaluate.py, visualize.py locally, and making dockerfiles for train.py and evaluate.py locally, and then profiling and logging. Then calculate the code coverage and add continues workflows.
-
+Student s232414: Was responsible for integrating the timm framework into the project by implementing load_resnet18_timm in model.py. Also contributed to setting up train.py, ensuring hyperparameter tracking, and integrating Weights & Biases (W&B) for experiment logging. Participated in debugging the training pipeline and preparing visualizations for W&B metrics such as loss and accuracy.
