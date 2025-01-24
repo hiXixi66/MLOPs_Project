@@ -194,7 +194,7 @@ From the cookiecutter template we filled out models/ with model parameter weight
 >
 > Answer:
 
---- question 6 fill here ---
+To ensure that our project contained readable and reproducible code we used pep8 formatting so that our code followed a certain style which makes it a lot easier to read and to modify since we do not have to adjust to any other formatting styles...
 
 ## Version control
 
@@ -297,7 +297,6 @@ The unit testing workflow checks if our code actually works correctly using auto
 Having separate workflows for linting and unit testing makes our CI process clearer and more efficient. This helps us write better code that works reliably on different systems.
 The Linting workflow can be found : [Linting](https://github.com/hiXixi66/MLOPs_Project/actions/workflows/linting.yaml)
 
---- question 11 fill here ---
 
 ## Running code and tracking experiments
 
