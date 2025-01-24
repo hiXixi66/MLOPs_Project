@@ -213,8 +213,6 @@ To ensure that our project contained readable and reproducible code we used pep8
 >
 > Answer:
 
-
-
 In total, we have implemented 103 tests. Primarily, we are testing data processing functions (e.g., ensuring correct handling of various data input scenarios) and model-related functions (e.g., verifying the model's training and inference behavior), as these are the most critical parts of our application.
 Name                          Stmts   Miss  Cover   Missing
 -----------------------------------------------------------
@@ -288,7 +286,9 @@ We did use dvc to manage our data. While it wasn't necessary for this project as
 > *and one for running ... . In particular for our ..., we used ... .An example of a triggered workflow can be seen*
 > *here: <weblink>*
 >
-> Answer:We use continuous integration (CI) to automatically check our code for quality and correctness. We use GitHub Actions and have two main CI workflows: one for linting and one for unit tests. This keeps things organized and makes it easier to see what's happening.
+> Answer:
+
+We use continuous integration (CI) to automatically check our code for quality and correctness. We use GitHub Actions and have two main CI workflows: one for linting and one for unit tests. This keeps things organized and makes it easier to see what's happening.
 
 The linting workflow checks our code style using flake8. It makes sure our code looks consistent and follows coding standards. This runs every time someone pushes code or makes a pull request to the main branch. We test on different operating systems (Ubuntu, Windows, and macOS) and a specific Python version (3.12) to make sure our code works everywhere. We also use caching to speed things up by saving downloaded packages. Even if there are linting errors, the CI process keeps running so we can see other problems too.
 
@@ -361,7 +361,8 @@ We made use of config files. Whenever an experiment was run a config file would 
 > *For our project we developed several images: one for training, inference and deployment. For example to run the*
 > *training docker image: `docker run trainer:latest lr=1e-3 batch_size=64`. Link to docker file: <weblink>*
 >
-> Answer: We use Docker and the Docker Engine to containerize various parts of our project, including API, backend, evaluation, frontend, and training components. Each component has a Dockerfile defining its environment. These Dockerfiles specify a base image, install necessary dependencies, copy project files, and define the startup command.
+>
+Answer: We use Docker and the Docker Engine to containerize various parts of our project, including API, backend, evaluation, frontend, and training components. Each component has a Dockerfile defining its environment. These Dockerfiles specify a base image, install necessary dependencies, copy project files, and define the startup command.
 
 To build our Docker images, we use the docker build command. Specifically: `docker build -t backend . -f backend.dockerfile .`. This builds the backend image.
 
@@ -565,8 +566,8 @@ We created a test_api.py file which included two tests where we utilized pytest 
 > *We implemented a frontend for our API. We did this because we wanted to show the user ... . The frontend was*
 > *implemented using ...*
 >
->
-Answer: In addition to the backend API, we also created a frontend application to provide a user-friendly interface for interacting with the API. This frontend is deployed on Google Cloud using a Dockerfile (similar to how we deployed the backend). You can access the frontend here: https://frontend-1083855416866.europe-west10.run.app/
+>Answer:
+In addition to the backend API, we also created a frontend application to provide a user-friendly interface for interacting with the API. This frontend is deployed on Google Cloud using a Dockerfile (similar to how we deployed the backend). You can access the frontend here: https://frontend-1083855416866.europe-west10.run.app/
 
 The purpose of the frontend is to allow users to easily upload images of rice. Once uploaded, the frontend sends the image to the backend API for classification. The API then analyzes the image and returns the predicted classification along with the probability distribution of all possible classes. The frontend presents this information to the user in a clear and understandable way, typically including:
 
