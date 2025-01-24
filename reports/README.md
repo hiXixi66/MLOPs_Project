@@ -85,11 +85,11 @@ will check the repositories and the code to verify your answers.
 * [ ] Create a trigger workflow for automatically building your docker images (M21)
 * [Y] Get your model training in GCP using either the Engine or Vertex AI (M21)
 * [Y] Create a FastAPI application that can do inference using your model (M22)
-* [ ] Deploy your model in GCP using either Functions or Run as the backend (M23)
-* [ ] Write API tests for your application and setup continues integration for these (M24)
-* [ ] Load test your application (M24)
+* [Y] Deploy your model in GCP using either Functions or Run as the backend (M23)
+* [Y] Write API tests for your application and setup continues integration for these (M24)
+* [Y] Load test your application (M24)
 * [ ] Create a more specialized ML-deployment API using either ONNX or BentoML, or both (M25)
-* [ ] Create a frontend for your API (M26)
+* [Y] Create a frontend for your API (M26)
 
 ### Week 3
 
@@ -212,17 +212,7 @@ will check the repositories and the code to verify your answers.
 > *application but also ... .*
 >
 > Answer: In total, we have implemented 103 tests. Primarily, we are testing data processing functions (e.g., ensuring correct handling of various data input scenarios) and model-related functions (e.g., verifying the model's training and inference behavior), as these are the most critical parts of our application.
-Name                          Stmts   Miss  Cover   Missing
------------------------------------------------------------
-src/rice_images/__init__.py       0      0   100%
-src/rice_images/data.py          40     26    35%   13-37, 61-92, 97
-src/rice_images/model.py         16      7    56%   33-44
-tests/__init__.py                 0      0   100%
-tests/test_api.py                 0      0   100%
-tests/test_data.py               53      2    96%   97-98
-tests/test_model.py              50      0   100%
------------------------------------------------------------
-TOTAL                           159     35    78%
+
 
 
 
@@ -242,6 +232,18 @@ TOTAL                           159     35    78%
 > Answer: The total code coverage of our project is 78%, which includes all our source code and tests. While this represents a strong level of coverage, we are still far from achieving 100%. Even if we were to achieve 100% code coverage, it would not guarantee that the code is error-free. 
 Covered Statements = 159 - 35 = 124
 Coverage (%)=( 159 / 124 )×100≈77.99% ( 78%)
+
+Name                          Stmts   Miss  Cover   Missing
+-----------------------------------------------------------
+src/rice_images/__init__.py       0      0   100%
+src/rice_images/data.py          40     26    35%   13-37, 61-92, 97
+src/rice_images/model.py         16      7    56%   33-44
+tests/__init__.py                 0      0   100%
+tests/test_api.py                 0      0   100%
+tests/test_data.py               53      2    96%   97-98
+tests/test_model.py              50      0   100%
+-----------------------------------------------------------
+TOTAL                           159     35    78%
 
 --- question 8 fill here ---
 
