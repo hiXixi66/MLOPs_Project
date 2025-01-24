@@ -211,12 +211,10 @@ To ensure that our project contained readable and reproducible code we used pep8
 > *In total we have implemented X tests. Primarily we are testing ... and ... as these the most critical parts of our*
 > *application but also ... .*
 >
-> Answer: In total, we have implemented 103 tests. Primarily, we are testing data processing functions (e.g., ensuring correct handling of various data input scenarios) and model-related functions (e.g., verifying the model's training and inference behavior), as these are the most critical parts of our application.
+> Answer:
 
+In total, we have implemented 103 tests. Primarily, we are testing data processing functions (e.g., ensuring correct handling of various data input scenarios) and model-related functions (e.g., verifying the model's training and inference behavior), as these are the most critical parts of our application.
 
-
-
---- question 7 fill here ---
 
 > Answer:
 
