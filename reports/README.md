@@ -425,9 +425,9 @@ This is the link for the dockerfiles: [Dockerfiles](https://github.com/hiXixi66/
 > *Debugging method was dependent on group member. Some just used ... and others used ... . We did a single profiling*
 > *run of our main code at some point that showed ...*
 >
-> Answer: 
+> Answer:
 
-Debugging methods varied based on the issue encountered during the experiments. For instance, when facing unexpected errors or suboptimal performance, I relied on tools such as logging, assertion checks, and interactive debugging (e.g., using `pdb`). For computational bottlenecks or performance optimization, I conducted profiling to analyze resource usage and identify inefficiencies. 
+Debugging methods varied based on the issue encountered during the experiments. For instance, when facing unexpected errors or suboptimal performance, I relied on tools such as logging, assertion checks, and interactive debugging (e.g., using `pdb`). For computational bottlenecks or performance optimization, I conducted profiling to analyze resource usage and identify inefficiencies.
 
 We used PyTorch’s `torch.profiler` to profile the model during execution. This involved capturing CPU activities, recording tensor shapes, and analyzing call stacks to pinpoint areas of high resource consumption. Additionally, I leveraged TensorBoard visualization through the `tensorboard_trace_handler` to gain insights into model behavior and optimize specific parts of the code. For example, the profiling revealed whether the model was spending excessive time in certain layers or operations, allowing for targeted optimizations.
 
@@ -595,7 +595,7 @@ We did not manage to implement monitoring for our deployed model due to time con
 >
 > Answer:
 
---- question 27 fill here --- -everyone write what you spend from Billing 
+--- question 27 fill here --- -everyone write what you spend from Billing
 Viktor: 7eur on Compute Engine; 6 eur on Cloud Storage.
 Alexandru: 3 eur on Compute Engine
 
@@ -658,15 +658,13 @@ The integration with "Weights & Biases" ensures seamless tracking and monitoring
 >
 > Answer:
 
-Georgia to merge::
+The biggest struggles in the project were managing the data with DVC, deploying the model in Google Cloud Platform (GCP), and setting up a shared environment for the team. Managing data with DVC was the hardest challenge because uploading and downloading data took a lot of time. Additionally, setting permissions to share the data across the team was complicated and caused delays. To solve this, we organized the data better to reduce transfer times and carefully adjusted permissions to make sharing easier.
 
-hardest: deploying model in GCP
-dvc in Bucket
-setting up an environment to be shared across team
-building yaml trigger workflow
-building dockerfiles
-wandb setup was easy
-easiest: building the template with cookiecutter
+Deploying the model in GCP was also challenging. Setting up the cloud infrastructure and ensuring all components worked together required a lot of troubleshooting. Breaking the deployment into smaller steps and testing each part separately helped identify and fix issues along the way.
+
+Setting up a shared environment for the team was another difficult task. Everyone was installing packages for their tasks, which led to version conflicts. This caused issues with dependencies and made it hard to have a consistent environment that worked for everyone. To solve this, we created a unified requirements.txt file to standardize the dependencies and avoid conflicts. We also used Docker to provide a reliable and consistent environment for all team members. Building YAML workflows for automation also required effort. Debugging and refining the workflows needed time.
+
+Some tasks were easier. Creating Dockerfiles was straightforward because we had prior experience with containerization. Setting up Weights & Biases (wandb) for tracking experiments was quick and user-friendly. Using Cookiecutter to generate the project template was also simple and saved us a lot of time.
 
 ### Question 31
 
@@ -687,4 +685,3 @@ easiest: building the template with cookiecutter
 Student s232253 was in charge of writing evaluate.py, visualize.py locally, and making dockerfiles for train.py and evaluate.py locally, and then profiling and logging. Then calculate the code coverage and add continues workflows.
 Student s232414: Was responsible for integrating the timm framework into the project by implementing load_resnet18_timm in model.py. Also contributed to setting up train.py, ensuring hyperparameter tracking, and integrating Weights & Biases (W&B) for experiment logging. Participated in debugging the training pipeline and preparing visualizations for W&B metrics such as loss and accuracy.
 Student s203957 created tempplate, wrote train.py, data.py. In charge of sharing the data via DVC using buckets. Managed to run train.py on GCP VM, but didn't save the results...
-
