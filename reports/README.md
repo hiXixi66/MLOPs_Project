@@ -297,7 +297,6 @@ The unit testing workflow checks if our code actually works correctly using auto
 Having separate workflows for linting and unit testing makes our CI process clearer and more efficient. This helps us write better code that works reliably on different systems.
 The Linting workflow can be found : [Linting](https://github.com/hiXixi66/MLOPs_Project/actions/workflows/linting.yaml)
 
---- question 11 fill here ---
 
 ## Running code and tracking experiments
 
