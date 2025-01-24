@@ -565,7 +565,13 @@ We created a test_api.py file which included two tests where we utilized pytest 
 > *We implemented a frontend for our API. We did this because we wanted to show the user ... . The frontend was*
 > *implemented using ...*
 >
-> Answer:
+> Answer: In addition to the backend API, we also created a frontend application to provide a user-friendly interface for interacting with the API. This frontend is deployed on Google Cloud using a Dockerfile (similar to how we deployed the backend). You can access the frontend here: https://frontend-1083855416866.europe-west10.run.app/
+
+The purpose of the frontend is to allow users to easily upload images of rice. Once uploaded, the frontend sends the image to the backend API for classification. The API then analyzes the image and returns the predicted classification along with the probability distribution of all possible classes. The frontend presents this information to the user in a clear and understandable way, typically including:
+
+    The predicted class label
+    A visual representation of the image
+    A plot illustrating the probability distribution for each class
 
 --- question 28 fill here ---
 
