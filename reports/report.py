@@ -38,7 +38,8 @@ class LengthConstraints(Constraints):
         if not (self.min_length <= len(answer) <= self.max_length):
             logger.warning(
                 f"Question {index} failed. Expected number of words to be"
-                f" between {self.min_length} and {self.max_length} but got {len(answer)}"
+                f" between {self.min_length} and {self.max_length} "
+                f"but got {len(answer)}"
             )
             return False
         return True
@@ -55,8 +56,10 @@ class ImageConstraints(Constraints):
         links = re.findall(r"\!\[.*?\]\(.*?\)", answer)
         if not (self.min_images <= len(links) <= self.max_images):
             logger.warning(
-                f"Question {index} failed check. Expected number of screenshots to be"
-                f" between {self.min_images} and {self.max_images} but got {len(links)}"
+                f"Question {index} failed check. "
+                f"Expected number of screenshots to be"
+                f" between {self.min_images} "
+                f"and {self.max_images} but got {len(links)}"
             )
             return False
         return True
@@ -159,7 +162,11 @@ def check() -> None:
         "question_31": LengthConstraints(min_length=50, max_length=200),
     }
     if len(answers) != 31:
-        msg = "Number of answers are different from the expected 31. Have you changed the template?"
+        msg = (
+            "Number of answers are different from the expected 31. "
+            + "Have you changed "
+            + "the template?"
+        )
         raise ValueError(msg)
 
     counter = 0
