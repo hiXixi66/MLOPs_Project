@@ -288,7 +288,14 @@ We did use dvc to manage our data. While it wasn't necessary for this project as
 > *and one for running ... . In particular for our ..., we used ... .An example of a triggered workflow can be seen*
 > *here: <weblink>*
 >
-> Answer:
+> Answer:We use continuous integration (CI) to automatically check our code for quality and correctness. We use GitHub Actions and have two main CI workflows: one for linting and one for unit tests. This keeps things organized and makes it easier to see what's happening.
+
+The linting workflow checks our code style using flake8. It makes sure our code looks consistent and follows coding standards. This runs every time someone pushes code or makes a pull request to the main branch. We test on different operating systems (Ubuntu, Windows, and macOS) and a specific Python version (3.12) to make sure our code works everywhere. We also use caching to speed things up by saving downloaded packages. Even if there are linting errors, the CI process keeps running so we can see other problems too.
+
+The unit testing workflow checks if our code actually works correctly using automated tests. Like the linting workflow, it runs on every code push or pull request to the main branch and tests on different operating systems and Python versions. It also uses caching to be faster. This workflow installs everything our code needs and then runs the tests using pytest. We also create coverage reports to see how much of our code is tested.
+
+Having separate workflows for linting and unit testing makes our CI process clearer and more efficient. This helps us write better code that works reliably on different systems.
+The Linting workflow can be found : [Linting](https://github.com/hiXixi66/MLOPs_Project/actions/workflows/linting.yaml)
 
 --- question 11 fill here ---
 
