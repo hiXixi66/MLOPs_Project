@@ -599,6 +599,7 @@ We did not manage to implement monitoring for our deployed model due to time con
 Viktor: 7eur on Compute Engine; 6 eur on Cloud Storage.
 Alexandru: 3 eur on Compute Engine
 Georgia: 1.55 eur on Cloud Run
+Viktor Milenov: 2 eur on Compute Engine
 
 ### Question 28
 
@@ -690,3 +691,5 @@ Student s232414: Was responsible for integrating the timm framework into the pro
 Student s203957 created template, wrote train.py, data.py. In charge of sharing the data via DVC using buckets. Managed to run train.py on GCP VM, but didn't save the results...
 
 Student s232472 was in charge of setting up pre-commit hooks and implementing linting tests in the continuous integration pipeline. Additionally, created, tested, and deployed both the backend and frontend of the project. This included developing Python scripts, writing the Dockerfile, and organizing separate requirements.txt files. Also utilized Google Cloud Platform (GCP) to upload the Dockerfiles, ensuring the frontend and backend could run seamlessly on the cloud.
+
+Student s243075 was tasked to implement the individual unit tests found in test_data.py, test_model.py, test_api.py. Created api.py so that it can import all the necessary functions/requests in backend.py and worked on establishing a secure connection with an instance of a virtual machine on the cloud so that requests can be made directly to the model via a local terminal.
