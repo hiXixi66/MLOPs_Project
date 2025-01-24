@@ -492,7 +492,9 @@ We didn't use the Compute Engine with VMs very much. We figured out how to uploa
 > **Upload 1-2 images of your GCP cloud build history, so we can see the history of the images that have been build in**
 > **your project. You can take inspiration from [this figure](figures/build.png).**
 >
-> Answer: [Frontrnd-Backend build](figures/build_fb.png).
+> Answer:
+
+[Frontend-Backend build](figures/build_fb.png).
 
 
 
