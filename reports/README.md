@@ -116,9 +116,9 @@ will check the repositories and the code to verify your answers.
 ### Question 1
 > **Enter the group number you signed up on <learn.inside.dtu.dk>**
 >
-> Answer: 18
+> Answer:
 
---- question 1 fill here ---
+18
 
 ### Question 2
 > **Enter the study number for each member in the group**
@@ -127,9 +127,9 @@ will check the repositories and the code to verify your answers.
 >
 > *sXXXXXX, sXXXXXX, sXXXXXX*
 >
-> Answer: s203957, s232253, s232414, s232472, s243075
+> Answer:
 
---- question 2 fill here ---
+s203957, s232253, s232414, s232472, s243075
 
 ### Question 3
 > **A requirement to the project is that you include a third-party package not covered in the course. What framework**
@@ -141,7 +141,7 @@ will check the repositories and the code to verify your answers.
 > *We used the third-party framework ... in our project. We used functionality ... and functionality ... from the*
 > *package to do ... and ... in our project*.
 >
-> Answer: 
+> Answer:
 
 --- question 3 fill here ---
 
@@ -161,9 +161,9 @@ will check the repositories and the code to verify your answers.
 > *We used ... for managing our dependencies. The list of dependencies was auto-generated using ... . To get a*
 > *complete copy of our development environment, one would have to run the following commands*
 >
-> Answer: In order to get the exact same work environment a new team meamber would have to initialize our github repository and then write 'pip install -e .' (I assume they will want developer rights). This will then install all the libraries created for this project (folders with __init__.py files) and install the libraries with the same version as us (assuming we filled in requirements.txt+requirements_dev.txt thouroughly)
+> Answer:
 
---- question 4 fill here ---
+In order to get the exact same work environment a new team meamber would have to initialize our github repository and then write 'pip install -e .' (I assume they will want developer rights). This will then install all the libraries created for this project (folders with __init__.py files) and install the libraries with the same version as us (assuming we filled in requirements.txt+requirements_dev.txt thouroughly)
 
 ### Question 5
 
@@ -177,9 +177,9 @@ will check the repositories and the code to verify your answers.
 > *because we did not use any ... in our project. We have added an ... folder that contains ... for running our*
 > *experiments.*
 >
-> Answer: From the cookiecutter template we filled out models/ with model parameter weights, configs with the configuration file used to start the training code, src/ with ML code, tests/ with tests for our source code. We created a new folder outputs/ with the configuration files generated from hydra each training run. While the template typically places outputs in directories based on their creation date, we did not utilize this feature to minimize code restructuring. Although this approach worked well for this project, adopting the default structure would be beneficial for longer-term projects in order to minimize chances of overwriting run code.
+> Answer:
 
---- question 5 fill here ---
+From the cookiecutter template we filled out models/ with model parameter weights, configs with the configuration file used to start the training code, src/ with ML code, tests/ with tests for our source code. We created a new folder outputs/ with the configuration files generated from hydra each training run. While the template typically places outputs in directories based on their creation date, we did not utilize this feature to minimize code restructuring. Although this approach worked well for this project, adopting the default structure would be beneficial for longer-term projects in order to minimize chances of overwriting run code.
 
 ### Question 6
 
@@ -194,7 +194,7 @@ will check the repositories and the code to verify your answers.
 >
 > Answer:
 
---- question 6 fill here ---
+To ensure that our project contained readable and reproducible code we used pep8 formatting so that our code followed a certain style which makes it a lot easier to read and to modify since we do not have to adjust to any other formatting styles...
 
 ## Version control
 
@@ -218,6 +218,23 @@ will check the repositories and the code to verify your answers.
 
 --- question 7 fill here ---
 
+> Answer:
+
+In total, we have implemented 103 tests. Primarily, we are testing data processing functions (e.g., ensuring correct handling of various data input scenarios) and model-related functions (e.g., verifying the model's training and inference behavior), as these are the most critical parts of our application.
+
+<pre>
+Name                          Stmts   Miss  Cover   Missing
+-----------------------------------------------------------
+src/rice_images/__init__.py       0      0   100%
+src/rice_images/data.py          40     26    35%   13-37, 61-92, 97
+src/rice_images/model.py         16      7    56%   33-44
+tests/__init__.py                 0      0   100%
+tests/test_api.py                 0      0   100%
+tests/test_data.py               53      2    96%   97-98
+tests/test_model.py              50      0   100%
+-----------------------------------------------------------
+TOTAL                           159     35    78%
+</pre>
 ### Question 8
 
 > **What is the total code coverage (in percentage) of your code? If your code had a code coverage of 100% (or close**
@@ -229,7 +246,9 @@ will check the repositories and the code to verify your answers.
 > *The total code coverage of code is X%, which includes all our source code. We are far from 100% coverage of our **
 > *code and even if we were then...*
 >
-> Answer: The total code coverage of our project is 78%, which includes all our source code and tests. While this represents a strong level of coverage, we are still far from achieving 100%. Even if we were to achieve 100% code coverage, it would not guarantee that the code is error-free. 
+> Answer:
+
+The total code coverage of our project is 78%, which includes all our source code and tests. While this represents a strong level of coverage, we are still far from achieving 100%. Even if we were to achieve 100% code coverage, it would not guarantee that the code is error-free.
 Covered Statements = 159 - 35 = 124
 Coverage (%)=( 159 / 124 )×100≈77.99% ( 78%)
 
@@ -260,7 +279,7 @@ TOTAL                           159     35    78%
 >
 > Answer:
 
---- question 9 fill here ---
+We used branches during the production of our project. The structure of our branches was the following: there were mainly two types of branches that more or less had the same functionality. We had personal branches, so a direct copy of the main branch that each one of us could work on and test the performance of our assigned tasks, and the second type which basically defined the task to be done (for example, pip8-complicance, data_storage, etc.). Furthermore, since each one of us practically worked on different parts of the project we did not need to utilize pull requests too often, only in cases where one of the group members modified something without the explicit knowledge of the other group members. Once we got the specific piece of code working on one of the branches we would perform a merge with the main branch and update the code stored there.
 
 ### Question 10
 
@@ -273,9 +292,9 @@ TOTAL                           159     35    78%
 > *We did make use of DVC in the following way: ... . In the end it helped us in ... for controlling ... part of our*
 > *pipeline*
 >
-> Answer: We did use dvc to manage our data. While it wasn't necessary for this project as data formatting wasn't explored much and the original source for our data remained active, it does in general make sense to back up your data to a server and use dvc such that if the data was overwritten, the original data could always be recovered.
+> Answer:
 
---- question 10 fill here ---
+We did use dvc to manage our data. While it wasn't necessary for this project as data formatting wasn't explored much and the original source for our data remained active, it does in general make sense to back up your data to a server and use dvc such that if the data was overwritten, the original data could always be recovered.
 
 ### Question 11
 
@@ -292,7 +311,15 @@ TOTAL                           159     35    78%
 >
 > Answer:
 
---- question 11 fill here ---
+We use continuous integration (CI) to automatically check our code for quality and correctness. We use GitHub Actions and have two main CI workflows: one for linting and one for unit tests. This keeps things organized and makes it easier to see what's happening.
+
+The linting workflow checks our code style using flake8. It makes sure our code looks consistent and follows coding standards. This runs every time someone pushes code or makes a pull request to the main branch. We test on different operating systems (Ubuntu, Windows, and macOS) and a specific Python version (3.12) to make sure our code works everywhere. We also use caching to speed things up by saving downloaded packages. Even if there are linting errors, the CI process keeps running so we can see other problems too.
+
+The unit testing workflow checks if our code actually works correctly using automated tests. Like the linting workflow, it runs on every code push or pull request to the main branch and tests on different operating systems and Python versions. It also uses caching to be faster. This workflow installs everything our code needs and then runs the tests using pytest. We also create coverage reports to see how much of our code is tested.
+
+Having separate workflows for linting and unit testing makes our CI process clearer and more efficient. This helps us write better code that works reliably on different systems.
+The Linting workflow can be found : [Linting](https://github.com/hiXixi66/MLOPs_Project/actions/workflows/linting.yaml)
+
 
 ## Running code and tracking experiments
 
@@ -309,15 +336,9 @@ TOTAL                           159     35    78%
 > Example:
 > *We used a simple argparser, that worked in the following way: Python  my_script.py --lr 1e-3 --batch_size 25*
 >
-> Answer: We opted to use hydra in order to manage configuration files. The start of src/rice_images/train.py then initialized parameters from the configs/train.yaml. The code could then be run as python src/rice_images/train.py. The requirements for what was in configs/train.yaml can be seen below
-lr: 1e-3
-batch_size: 32
-epochs: 2
-epoch_save_interval: 1
-model_save_path: "tester2"
-downsample_train: 10
+> Answer:
 
---- question 12 fill here ---
+We used hydra to manage configurations such as hyperparmeters. The code would be run by using python src/rice_images/train.py and the configuration for the run would be saved in outputs/<date>/... The hyperparameters could be altered by changing the values in configs/train.yaml.
 
 ### Question 13
 
@@ -332,7 +353,8 @@ downsample_train: 10
 >
 > Answer:
 
---- question 13 fill here ---
+We made use of config files. Whenever an experiment was run a config file would be generated. In order to reproduce the experiment one could reuse the config file from that experiment by running the code with this config file. Feks python src/rice_images/train.py --config-path ../../outputs/2025-01-17/08-41-56/.hydra --config-name config.yaml
+
 
 ### Question 14
 
@@ -362,9 +384,20 @@ downsample_train: 10
 > *For our project we developed several images: one for training, inference and deployment. For example to run the*
 > *training docker image: `docker run trainer:latest lr=1e-3 batch_size=64`. Link to docker file: <weblink>*
 >
-> Answer:
+>Answer:
 
---- question 15 fill here ---
+We use Docker and the Docker Engine to containerize various parts of our project, including API, backend, evaluation, frontend, and training components. Each component has a Dockerfile defining its environment. These Dockerfiles specify a base image, install necessary dependencies, copy project files, and define the startup command.
+
+To build our Docker images, we use the docker build command. Specifically: `docker build -t backend . -f backend.dockerfile .`. This builds the backend image.
+
+To run the built images, we use the docker run command.
+Specifically for the backend: `docker run --rm -p 8000:8000 -e "PORT=8000" backend`. This command maps port 8000 on the host to port 8000 in the container and sets the PORT environment variable inside the container to 8000. The --rm flag removes the container after it stops.
+
+These commands ensure consistent and isolated environments for each component of our project, simplifying development, testing, and deployment.
+
+This is the link for the dockerfiles: [Dockerfiles](https://github.com/hiXixi66/MLOPs_Project/tree/main/dockerfiles)
+
+
 
 ### Question 16
 
@@ -396,7 +429,7 @@ downsample_train: 10
 >
 > Answer:
 
---- question 17 fill here ---
+We used engine, bucket and cloud function. Bucket was used for data storage with version control. Engine was used for training the model (just to try it. It wasn't part of our procedure). Engine and functions were both used to deploy the function. We ended up preffering engine as it was easier...
 
 ### Question 18
 
@@ -420,7 +453,9 @@ downsample_train: 10
 >
 > Answer:
 
---- question 19 fill here ---
+[Data bucket](figures/q19_bucket.png).
+
+[Frontend-backend bucket](figures/frontend_backend_bucket.png).
 
 ### Question 20
 
@@ -429,16 +464,18 @@ downsample_train: 10
 >
 > Answer:
 
---- question 20 fill here ---
+[Frontend-backend registry](figures/artifact_registryFB.png).
+
+
 
 ### Question 21
 
 > **Upload 1-2 images of your GCP cloud build history, so we can see the history of the images that have been build in**
 > **your project. You can take inspiration from [this figure](figures/build.png).**
 >
-> Answer:
+> Answer: [Frontrnd-Backend build](figures/build_fb.png).
 
---- question 21 fill here ---
+
 
 ### Question 22
 
@@ -470,7 +507,7 @@ downsample_train: 10
 >
 > Answer:
 
---- question 23 fill here ---
+We used FastAPI to write the API for our model. Our api.py file contained the initialization of the application as well as setting up the security of our API using CORS middleware. This allowed us to define which requests we allow to be made to our model (the HTTP methods) as well as which origins are permitted to make cross-origin requests. Furthermore, this file contained a basic health check just to confirm that the API is running properly and it includes all of the individual requests defined in our backend.py file. This file purely defines the functionality of the individual allowed requests. For instance, the GET request defined in backend.py takes an image as an input and puts it through a classification function that returns the probabilities of the specific image being a certain class.
 
 ### Question 24
 
@@ -486,7 +523,11 @@ downsample_train: 10
 >
 > Answer:
 
---- question 24 fill here ---
+To deploy the model to the cloud we used the api.py and backend.py files described above. We created a virtual machine instance which we connected to our git repository and installed our entire model and the relevant dependencies. We used the SSH virtual machine terminal to do this and to start up the API itself using the following command: uvicorn api:app --host 0.0.0.0 --port 5000. Once the API was running smoothly we could invoke requests to our model using a local terminal (for instance GitBash). We could first check if the connection to the virtual machine works properly by checking the status of our application by running the following command: curl http://34.123.45.67:5000/health (of course replacing the external IP with the current relevant one). Furthermore, if we wanted to test our model and see how it performs on a random image of rice we could invoke the GET request using the following command: curl -X POST http://34.79.157.188:5000/classify/ \
+-H "Content-Type: multipart/form-data" \
+-F "file=@path/c/MASTER/ML Operations/MLOPs_Project/data/raw/Rice_Image_Dataset/Rice_Image_Dataset/Arborio/Arborio (1).jpg"" (changing the path and external IP accordingly).
+
+
 
 ### Question 25
 
@@ -501,7 +542,7 @@ downsample_train: 10
 >
 > Answer:
 
---- question 25 fill here ---
+We created a test_api.py file which included two tests where we utilized pytest to initialize the test client. Our first test named test_model_with_preprocessed_image performs a test to ensure that the model can correctly provide reasonable class predictions given a random preprocessed image. Before the definition of the test we also define the transformations used for normalization of the data. The second test checks the behaviour of the model in case it is provided with no image file and that it can correctly output the correct error code in such a case.
 
 ### Question 26
 
@@ -549,9 +590,15 @@ downsample_train: 10
 > *We implemented a frontend for our API. We did this because we wanted to show the user ... . The frontend was*
 > *implemented using ...*
 >
-> Answer:
+>Answer:
+In addition to the backend API, we also created a frontend application to provide a user-friendly interface for interacting with the API. This frontend is deployed on Google Cloud using a Dockerfile (similar to how we deployed the backend). You can access the frontend here: https://frontend-1083855416866.europe-west10.run.app/
 
---- question 28 fill here ---
+The purpose of the frontend is to allow users to easily upload images of rice. Once uploaded, the frontend sends the image to the backend API for classification. The API then analyzes the image and returns the predicted classification along with the probability distribution of all possible classes. The frontend presents this information to the user in a clear and understandable way, typically including:
+
+The predicted class label
+A visual representation of the image
+A plot illustrating the probability distribution for each class
+
 
 ### Question 29
 
