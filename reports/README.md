@@ -194,7 +194,7 @@ From the cookiecutter template we filled out models/ with model parameter weight
 >
 > Answer:
 
---- question 6 fill here ---
+To ensure that our project contained readable and reproducible code we used pep8 formatting so that our code followed a certain style which makes it a lot easier to read and to modify since we do not have to adjust to any other formatting styles...
 
 ## Version control
 
