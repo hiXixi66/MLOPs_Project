@@ -258,7 +258,7 @@ Coverage (%)=( 159 / 124 )×100≈77.99% ( 78%)
 >
 > Answer:
 
---- question 9 fill here ---
+We used branches during the production of our project. The structure of our branches was the following: there were mainly two types of branches that more or less had the same functionality. We had personal branches, so a direct copy of the main branch that each one of us could work on and test the performance of our assigned tasks, and the second type which basically defined the task to be done (for example, pip8-complicance, data_storage, etc.). Furthermore, since each one of us practically worked on different parts of the project we did not need to utilize pull requests too often, only in cases where one of the group members modified something without the explicit knowledge of the other group members. Once we got the specific piece of code working on one of the branches we would perform a merge with the main branch and update the code stored there.
 
 ### Question 10
 
@@ -463,7 +463,7 @@ We used engine, bucket and cloud function. Bucket was used for data storage with
 >
 > Answer:
 
---- question 23 fill here ---
+We used FastAPI to write the API for our model. Our api.py file contained the initialization of the application as well as setting up the security of our API using CORS middleware. This allowed us to define which requests we allow to be made to our model (the HTTP methods) as well as which origins are permitted to make cross-origin requests. Furthermore, this file contained a basic health check just to confirm that the API is running properly and it includes all of the individual requests defined in our backend.py file. This file purely defines the functionality of the individual allowed requests. For instance, the GET request defined in backend.py takes an image as an input and puts it through a classification function that returns the probabilities of the specific image being a certain class.
 
 ### Question 24
 
@@ -479,7 +479,11 @@ We used engine, bucket and cloud function. Bucket was used for data storage with
 >
 > Answer:
 
---- question 24 fill here ---
+To deploy the model to the cloud we used the api.py and backend.py files described above. We created a virtual machine instance which we connected to our git repository and installed our entire model and the relevant dependencies. We used the SSH virutal machine terminal to do this and to start up the API itself using the following command: uvicorn api:app --host 0.0.0.0 --port 5000. Once the API was running smoothly we could invoke requests to our model using a local terminal (for instance GitBash). We could first check if the connection to the virtual machine works properly by checking the status of our application by running the following command: curl http://34.123.45.67:5000/health (of course replacing the external IP with the current relevant one). Furthermore, if we wanted to test our model and see how it performs on a random image of rice we could invoke the GET request using the following command: curl -X POST http://34.79.157.188:5000/classify/ \
+-H "Content-Type: multipart/form-data" \
+-F "file=@path/c/MASTER/ML Operations/MLOPs_Project/data/raw/Rice_Image_Dataset/Rice_Image_Dataset/Arborio/Arborio (1).jpg"" (changing the path and external IP accordingly).
+
+
 
 ### Question 25
 
@@ -494,7 +498,7 @@ We used engine, bucket and cloud function. Bucket was used for data storage with
 >
 > Answer:
 
---- question 25 fill here ---
+We created a test_api.py file which included two tests where we utilized pytest to initialize the test client. Our first test named test_model_with_preprocessed_image performs a test to ensure that the model can correctly provide reasonable class predictions given a random preprocessed image. Before the definition of the test we also define the transformations used for normalization of the data. The second test checks the behaviour of the model in case it is provided with no image file and that it can correctly output the correct error code in such a case.
 
 ### Question 26
 
