@@ -32,8 +32,8 @@ jobs:
           pip install -e .[dev]
           pip install -r requirements.txt
 
+      - name: Run tests for the model
+        run: pytest tests/test_model.py
 
-      - name: Run tests & coverage
-        run: |
-          coverage run -m pytest tests/
-          coverage report -m
+      - name: Run tests for the api
+        run: pytest tests/test_api.py
