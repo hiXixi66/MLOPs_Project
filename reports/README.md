@@ -194,7 +194,7 @@ From the cookiecutter template we filled out models/ with model parameter weight
 >
 > Answer:
 
-To ensure that our project contained readable and reproducible code we used pep8 formatting so that our code followed a certain style which makes it a lot easier to read and to modify since we do not have to adjust to any other formatting styles. We used ruff for linting so that we can perform checks if the code is written properly and if it follows the specific formatting rules that we have selected while also ensuring consistency and checking for any errors. This is important because a lot of time can be wasted manually checking if all of the code abides by the defined rules and format, so using a linter such as ruff can ensure consistency and readability of our code.
+To ensure that our project contained readable and reproducible code we used pep8 formatting so that our code followed a certain style which makes it a lot easier to read and to modify since we do not have to adjust to any other formatting styles. We used ruff for linting so that we can perform checks if the code is written properly and if it follows the specific formatting rules that we have selected (i.e. line-length=120) while also ensuring consistency and checking for any errors. This is important because a lot of time can be wasted manually checking if all of the code abides by the defined rules and format, so using a linter such as ruff can ensure consistency and readability of our code.
 
 ## Version control
 
