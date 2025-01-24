@@ -85,11 +85,11 @@ will check the repositories and the code to verify your answers.
 * [ ] Create a trigger workflow for automatically building your docker images (M21)
 * [Y] Get your model training in GCP using either the Engine or Vertex AI (M21)
 * [Y] Create a FastAPI application that can do inference using your model (M22)
-* [ ] Deploy your model in GCP using either Functions or Run as the backend (M23)
+* [Y] Deploy your model in GCP using either Functions or Run as the backend (M23)
 * [ ] Write API tests for your application and setup continues integration for these (M24)
 * [ ] Load test your application (M24)
 * [ ] Create a more specialized ML-deployment API using either ONNX or BentoML, or both (M25)
-* [ ] Create a frontend for your API (M26)
+* [Y] Create a frontend for your API (M26)
 
 ### Week 3
 
@@ -116,7 +116,7 @@ will check the repositories and the code to verify your answers.
 ### Question 1
 > **Enter the group number you signed up on <learn.inside.dtu.dk>**
 >
-> Answer: 
+> Answer:
 
 18
 
@@ -127,7 +127,7 @@ will check the repositories and the code to verify your answers.
 >
 > *sXXXXXX, sXXXXXX, sXXXXXX*
 >
-> Answer: 
+> Answer:
 
 s203957, s232253, s232414, s232472, s243075
 
@@ -141,7 +141,7 @@ s203957, s232253, s232414, s232472, s243075
 > *We used the third-party framework ... in our project. We used functionality ... and functionality ... from the*
 > *package to do ... and ... in our project*.
 >
-> Answer: 
+> Answer:
 
 --- question 3 fill here ---
 
@@ -161,7 +161,7 @@ s203957, s232253, s232414, s232472, s243075
 > *We used ... for managing our dependencies. The list of dependencies was auto-generated using ... . To get a*
 > *complete copy of our development environment, one would have to run the following commands*
 >
-> Answer: 
+> Answer:
 
 In order to get the exact same work environment a new team meamber would have to initialize our github repository and then write 'pip install -e .' (I assume they will want developer rights). This will then install all the libraries created for this project (folders with __init__.py files) and install the libraries with the same version as us (assuming we filled in requirements.txt+requirements_dev.txt thouroughly)
 
@@ -211,7 +211,7 @@ In order to get the exact same work environment a new team meamber would have to
 > *In total we have implemented X tests. Primarily we are testing ... and ... as these the most critical parts of our*
 > *application but also ... .*
 >
-> Answer: 
+> Answer:
 
 
 
@@ -239,9 +239,9 @@ TOTAL                           159     35    78%
 > *The total code coverage of code is X%, which includes all our source code. We are far from 100% coverage of our **
 > *code and even if we were then...*
 >
-> Answer: 
+> Answer:
 
-The total code coverage of our project is 78%, which includes all our source code and tests. While this represents a strong level of coverage, we are still far from achieving 100%. Even if we were to achieve 100% code coverage, it would not guarantee that the code is error-free. 
+The total code coverage of our project is 78%, which includes all our source code and tests. While this represents a strong level of coverage, we are still far from achieving 100%. Even if we were to achieve 100% code coverage, it would not guarantee that the code is error-free.
 Covered Statements = 159 - 35 = 124
 Coverage (%)=( 159 / 124 )×100≈77.99% ( 78%)
 
@@ -271,7 +271,7 @@ We used branches during the production of our project. The structure of our bran
 > *We did make use of DVC in the following way: ... . In the end it helped us in ... for controlling ... part of our*
 > *pipeline*
 >
-> Answer: 
+> Answer:
 
 We did use dvc to manage our data. While it wasn't necessary for this project as data formatting wasn't explored much and the original source for our data remained active, it does in general make sense to back up your data to a server and use dvc such that if the data was overwritten, the original data could always be recovered.
 
@@ -307,7 +307,7 @@ We did use dvc to manage our data. While it wasn't necessary for this project as
 > Example:
 > *We used a simple argparser, that worked in the following way: Python  my_script.py --lr 1e-3 --batch_size 25*
 >
-> Answer: 
+> Answer:
 
 We used hydra to manage configurations such as hyperparmeters. The code would be run by using python src/rice_images/train.py and the configuration for the run would be saved in outputs/<date>/... The hyperparameters could be altered by changing the values in configs/train.yaml.
 
