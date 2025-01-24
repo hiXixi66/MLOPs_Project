@@ -85,11 +85,11 @@ will check the repositories and the code to verify your answers.
 * [ ] Create a trigger workflow for automatically building your docker images (M21)
 * [Y] Get your model training in GCP using either the Engine or Vertex AI (M21)
 * [Y] Create a FastAPI application that can do inference using your model (M22)
-* [ ] Deploy your model in GCP using either Functions or Run as the backend (M23)
+* [Y] Deploy your model in GCP using either Functions or Run as the backend (M23)
 * [ ] Write API tests for your application and setup continues integration for these (M24)
 * [ ] Load test your application (M24)
 * [ ] Create a more specialized ML-deployment API using either ONNX or BentoML, or both (M25)
-* [ ] Create a frontend for your API (M26)
+* [Y] Create a frontend for your API (M26)
 
 ### Week 3
 
@@ -118,7 +118,6 @@ will check the repositories and the code to verify your answers.
 >
 > Answer: 18
 
---- question 1 fill here ---
 
 ### Question 2
 > **Enter the study number for each member in the group**
@@ -129,7 +128,6 @@ will check the repositories and the code to verify your answers.
 >
 > Answer: s203957, s232253, s232414, s232472, s243075
 
---- question 2 fill here ---
 
 ### Question 3
 > **A requirement to the project is that you include a third-party package not covered in the course. What framework**
@@ -141,7 +139,7 @@ will check the repositories and the code to verify your answers.
 > *We used the third-party framework ... in our project. We used functionality ... and functionality ... from the*
 > *package to do ... and ... in our project*.
 >
-> Answer: 
+> Answer:
 
 --- question 3 fill here ---
 
@@ -161,9 +159,7 @@ will check the repositories and the code to verify your answers.
 > *We used ... for managing our dependencies. The list of dependencies was auto-generated using ... . To get a*
 > *complete copy of our development environment, one would have to run the following commands*
 >
-> Answer: In order to get the exact same work environment a new team meamber would have to initialize our github repository and then write 'pip install -e .' (I assume they will want developer rights). This will then install all the libraries created for this project (folders with __init__.py files) and install the libraries with the same version as us (assuming we filled in requirements.txt+requirements_dev.txt thouroughly)
-
---- question 4 fill here ---
+> Answer: In order to get the exact same work environment a new team meamber would have to initialize our github repository and then write 'pip install -e .' (I assume they will want developer rights). This will then install all the libraries created for this project (folders with __init__.py files) and install the libraries with the same version as us (assuming we filled in requirements.txt + requirements_dev.txt thouroughly)
 
 ### Question 5
 
@@ -179,7 +175,7 @@ will check the repositories and the code to verify your answers.
 >
 > Answer: From the cookiecutter template we filled out models/ with model parameter weights, configs with the configuration file used to start the training code, src/ with ML code, tests/ with tests for our source code. We created a new folder outputs/ with the configuration files generated from hydra each training run. While the template typically places outputs in directories based on their creation date, we did not utilize this feature to minimize code restructuring. Although this approach worked well for this project, adopting the default structure would be beneficial for longer-term projects in order to minimize chances of overwriting run code.
 
---- question 5 fill here ---
+
 
 ### Question 6
 
@@ -226,8 +222,6 @@ TOTAL                           159     35    78%
 
 
 
---- question 7 fill here ---
-
 ### Question 8
 
 > **What is the total code coverage (in percentage) of your code? If your code had a code coverage of 100% (or close**
@@ -239,11 +233,11 @@ TOTAL                           159     35    78%
 > *The total code coverage of code is X%, which includes all our source code. We are far from 100% coverage of our **
 > *code and even if we were then...*
 >
-> Answer: The total code coverage of our project is 78%, which includes all our source code and tests. While this represents a strong level of coverage, we are still far from achieving 100%. Even if we were to achieve 100% code coverage, it would not guarantee that the code is error-free. 
+> Answer: The total code coverage of our project is 78%, which includes all our source code and tests. While this represents a strong level of coverage, we are still far from achieving 100%. Even if we were to achieve 100% code coverage, it would not guarantee that the code is error-free.
 Covered Statements = 159 - 35 = 124
 Coverage (%)=( 159 / 124 )×100≈77.99% ( 78%)
 
---- question 8 fill here ---
+
 
 ### Question 9
 
@@ -256,9 +250,9 @@ Coverage (%)=( 159 / 124 )×100≈77.99% ( 78%)
 > *We made use of both branches and PRs in our project. In our group, each member had an branch that they worked on in*
 > *addition to the main branch. To merge code we ...*
 >
-> Answer:
+> Answer:We used branches and pull requests in our project. Our workflow runs tests (using pytest) and checks for code style (linting) whenever we push to the `main` branch or make a pull request to it. To add code, each team member made their changes on their own branch and then opened a pull request to merge it into `main`. This kept everyone's work separate. The CI automatically ran tests and linting on these pull requests, which helped us find mistakes and style problems early on. Using branches and pull requests is important, especially when working with more people, because it lets everyone work at the same time without breaking the main code. It also lets us check each other’s work and make sure everything works and looks consistent before it goes into the main project. In our small group, the CI was mainly a way to automatically check that our individual code worked as expected and followed the same style.
 
---- question 9 fill here ---
+
 
 ### Question 10
 
@@ -273,7 +267,6 @@ Coverage (%)=( 159 / 124 )×100≈77.99% ( 78%)
 >
 > Answer: We did use dvc to manage our data. While it wasn't necessary for this project as data formatting wasn't explored much and the original source for our data remained active, it does in general make sense to back up your data to a server and use dvc such that if the data was overwritten, the original data could always be recovered.
 
---- question 10 fill here ---
 
 ### Question 11
 
