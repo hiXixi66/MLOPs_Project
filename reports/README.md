@@ -251,7 +251,7 @@ TOTAL                           159     35    78%
 The total code coverage of our project is 78%, which includes all our source code and tests. While this represents a strong level of coverage, we are still far from achieving 100%. Even if we were to achieve 100% code coverage, it would not guarantee that the code is error-free.
 Covered Statements = 159 - 35 = 124
 Coverage (%)=( 159 / 124 )×100≈77.99% ( 78%)
-
+<pre>
 Name                          Stmts   Miss  Cover   Missing
 -----------------------------------------------------------
 src/rice_images/__init__.py       0      0   100%
@@ -263,7 +263,7 @@ tests/test_data.py               53      2    96%   97-98
 tests/test_model.py              50      0   100%
 -----------------------------------------------------------
 TOTAL                           159     35    78%
-
+</pre>
 --- question 8 fill here ---
 
 ### Question 9
