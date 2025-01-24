@@ -635,14 +635,16 @@ A plot illustrating the probability distribution for each class
 > *Whenever we commit code and push to GitHub, it auto triggers ... and ... . From there the diagram shows ...*
 >
 > Answer:
+
+--- question 29 fill here ---
 [Overview](figures/overview.png)
+
+
 The starting point of the diagram is our local setup, where we integrate a Python 3.12 development environment, the "Weights & Biases" tracking system, and all dependencies required for ResNet-18 model training into our code. This setup allows us to run experiments locally while seamlessly recording metrics. Additionally, extensive preparation work has been completed to support porting the system to the cloud, including creating training and evaluation models, designing Dockerfiles, profiling, logging, and other essential tasks. Ultimately, we chose ResNet-18, achieving a classification accuracy exceeding 90%.
 
 When code is pre-committed, committed, and pushed to GitHub, it automatically triggers the GitHub Actions workflow. This pipeline is configured to build the project and push the resulting container image to the container registry. The container image contains the latest version of the source code along with its dependencies. From there, the updated container image is pulled by the Google Cloud Platform (GCP), where the ResNet-18 model is executed. After deployment, we developed a human-computer interaction interface, enabling users to input images via a URL link. The model runs on GCP and processes the input, delivering the results back to the user.
 
 The integration with "Weights & Biases" ensures seamless tracking and monitoring of experimental metrics and outcomes, providing valuable insights during the development and optimization phases. Additionally, users have the option to clone the source code directly from GitHub or pull the latest container image, allowing them to reproduce or expand the experiments locally with minimal setup effort. This workflow ensures scalability, reproducibility, and efficiency throughout the development process.
-
---- question 29 fill here ---
 
 ### Question 30
 
@@ -684,3 +686,5 @@ easiest: building the template with cookiecutter
 --- question 31 fill here --- -Write what you did each person
 Student s232253 was in charge of writing evaluate.py, visualize.py locally, and making dockerfiles for train.py and evaluate.py locally, and then profiling and logging. Then calculate the code coverage and add continues workflows.
 Student s232414: Was responsible for integrating the timm framework into the project by implementing load_resnet18_timm in model.py. Also contributed to setting up train.py, ensuring hyperparameter tracking, and integrating Weights & Biases (W&B) for experiment logging. Participated in debugging the training pipeline and preparing visualizations for W&B metrics such as loss and accuracy.
+Student s203957 created tempplate, wrote train.py, data.py. In charge of sharing the data via DVC using buckets. Managed to run train.py on GCP VM, but didn't save the results...
+
