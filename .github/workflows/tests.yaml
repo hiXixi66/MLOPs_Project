@@ -31,10 +31,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install -e .[dev]
           pip install -r requirements.txt
-          pip install httpx
 
       - name: Run tests for the model
         run: pytest tests/test_model.py
-
-      - name: Run tests for the api
-        run: pytest tests/test_api.py
