@@ -683,5 +683,9 @@ Some tasks were easier. Creating Dockerfiles was straightforward because we had 
 
 --- question 31 fill here --- -Write what you did each person
 Student s232253 was in charge of writing evaluate.py, visualize.py locally, and making dockerfiles for train.py and evaluate.py locally, and then profiling and logging. Then calculate the code coverage and add continues workflows.
+
 Student s232414: Was responsible for integrating the timm framework into the project by implementing load_resnet18_timm in model.py. Also contributed to setting up train.py, ensuring hyperparameter tracking, and integrating Weights & Biases (W&B) for experiment logging. Participated in debugging the training pipeline and preparing visualizations for W&B metrics such as loss and accuracy.
-Student s203957 created tempplate, wrote train.py, data.py. In charge of sharing the data via DVC using buckets. Managed to run train.py on GCP VM, but didn't save the results...
+
+Student s203957 created template, wrote train.py, data.py. In charge of sharing the data via DVC using buckets. Managed to run train.py on GCP VM, but didn't save the results...
+
+Student s232472 was in charge of setting up pre-commit hooks and implementing linting tests in the continuous integration pipeline. Additionally, created, tested, and deployed both the backend and frontend of the project. This included developing Python scripts, writing the Dockerfile, and organizing separate requirements.txt files. Also utilized Google Cloud Platform (GCP) to upload the Dockerfiles, ensuring the frontend and backend could run seamlessly on the cloud.
