@@ -177,9 +177,9 @@ In order to get the exact same work environment a new team meamber would have to
 > *because we did not use any ... in our project. We have added an ... folder that contains ... for running our*
 > *experiments.*
 >
-> Answer: From the cookiecutter template we filled out models/ with model parameter weights, configs with the configuration file used to start the training code, src/ with ML code, tests/ with tests for our source code. We created a new folder outputs/ with the configuration files generated from hydra each training run. While the template typically places outputs in directories based on their creation date, we did not utilize this feature to minimize code restructuring. Although this approach worked well for this project, adopting the default structure would be beneficial for longer-term projects in order to minimize chances of overwriting run code.
+> Answer: 
 
---- question 5 fill here ---
+From the cookiecutter template we filled out models/ with model parameter weights, configs with the configuration file used to start the training code, src/ with ML code, tests/ with tests for our source code. We created a new folder outputs/ with the configuration files generated from hydra each training run. While the template typically places outputs in directories based on their creation date, we did not utilize this feature to minimize code restructuring. Although this approach worked well for this project, adopting the default structure would be beneficial for longer-term projects in order to minimize chances of overwriting run code.
 
 ### Question 6
 
