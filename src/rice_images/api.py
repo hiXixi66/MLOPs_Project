@@ -5,7 +5,8 @@ from backend import router as backend_router
 # Create the main FastAPI app
 app = FastAPI(
     title="Rice Image Classification API",
-    description="API for classifying rice images using a pre-trained ResNet model.",
+    description="API for classifying rice images "
+    "using a pre-trained ResNet model.",
     version="1.0.0",
 )
 

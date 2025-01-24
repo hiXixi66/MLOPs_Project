@@ -37,7 +37,7 @@ class LengthConstraints(Constraints):
         answer = answer.split()
         if not (self.min_length <= len(answer) <= self.max_length):
             logger.warning(
-                f"Question {index} failed check. Expected number of words to be"
+                f"Question {index} failed. Expected number of words to be"
                 f" between {self.min_length} and {self.max_length} but got {len(answer)}"
             )
             return False

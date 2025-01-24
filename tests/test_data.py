@@ -5,13 +5,6 @@ from collections import Counter
 import pytest
 import torch
 
-# Add the src folder to sys.path
-sys.path.append(
-    os.path.abspath(os.path.join(os.path.dirname(__file__), "../src"))
-)
-
-from rice_images.data import load_data, pre_process_data  # noqa: E402
-
 
 @pytest.fixture(scope="module")
 def datasets():

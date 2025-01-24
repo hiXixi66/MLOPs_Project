@@ -5,7 +5,7 @@ from PIL import Image
 from model import load_resnet18_timm
 from torchvision import transforms
 import io
-import anyio
+
 
 router = APIRouter()
 

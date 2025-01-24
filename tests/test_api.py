@@ -73,7 +73,8 @@ def test_model_with_preprocessed_image():
     print(f"Predicted class: {class_names[predicted_class]}")
     print(f"Class probabilities: {probabilities.numpy()}")
 
-    # Assert conditions (example: checking the highest probability is reasonable)
+    # Assert conditions
+    # (example: checking the highest probability is reasonable)
     assert probabilities.max() > 0.5, "Model confidence is too low"
 
 

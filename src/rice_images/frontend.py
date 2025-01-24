@@ -89,7 +89,9 @@ def main() -> None:
             # st.write("Prediction:", prediction)
             # Display the styled prediction
             st.markdown(
-                f"<h3 style='text-align: center; {font_style}'>Prediction: <span style='color: {predicted_color};'>{prediction}</span></h3>",
+                f"<h3 style='text-align: center; {font_style}'>Prediction: "
+                f"<span style='color: {predicted_color};'>"
+                f"{prediction}</span></h3>",
                 unsafe_allow_html=True,
             )
 
@@ -121,7 +123,8 @@ def main() -> None:
 
         else:
             st.error(
-                "We encountered an issue. Please check your input or try later.",
+                "We encountered an issue. "
+                "Please check your input or try later.",
                 icon="🚨",
             )
 

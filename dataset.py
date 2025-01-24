@@ -1,5 +1,3 @@
-import matplotlib.pyplot as plt
-import torch
 import typer
 
 # from utils import show_image_and_target
@@ -7,7 +5,7 @@ import typer
 
 def dataset_statistics(datadir: str = "data") -> None:
     """Compute dataset statistics."""
-    print(f"Dataset statistics")
+    print("Dataset statistics")
 
 
 if __name__ == "__main__":
