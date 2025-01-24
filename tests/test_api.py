@@ -18,14 +18,20 @@ def client():
 
 
 # Define transformations (must match those used during training)
-transform = transforms.Compose([
-    transforms.Resize((250, 250)),  # Resize to 250x250
-    transforms.ToTensor(),          # Convert image to Tensor
-    transforms.Normalize(
-        mean=[0.485, 0.456, 0.406],  # Mean values used during training
-        std=[0.229, 0.224, 0.225]    # Standard deviation values used during training
-    ),
-])
+transform = transforms.Compose(
+    [
+        transforms.Resize((250, 250)),  # Resize to 250x250
+        transforms.ToTensor(),  # Convert image to Tensor
+        transforms.Normalize(
+            mean=[0.485, 0.456, 0.406],  # Mean values used during training
+            std=[
+                0.229,
+                0.224,
+                0.225,
+            ],  # Standard deviation values used during training
+        ),
+    ]
+)
 
 
 def test_model_with_preprocessed_image():
@@ -37,18 +43,22 @@ def test_model_with_preprocessed_image():
     image = Image.open(image_path).convert("RGB")
 
     # Define the preprocessing steps (must match training)
-    transform = transforms.Compose([
-        transforms.Resize((250, 250)),  # Resize to 250x250
-        transforms.ToTensor(),          # Convert to tensor
-        transforms.Normalize(
-            mean=[0.485, 0.456, 0.406],  # Mean values from training
-            std=[0.229, 0.224, 0.225]    # Standard deviation from training
-        ),
-    ])
+    transform = transforms.Compose(
+        [
+            transforms.Resize((250, 250)),  # Resize to 250x250
+            transforms.ToTensor(),  # Convert to tensor
+            transforms.Normalize(
+                mean=[0.485, 0.456, 0.406],  # Mean values from training
+                std=[0.229, 0.224, 0.225],  # Standard deviation from training
+            ),
+        ]
+    )
     preprocessed_image = transform(image).unsqueeze(0)  # Add batch dimension
 
     # Load the model
-    model = load_resnet18_timm(num_classes=5)  # Replace with your model loading function
+    model = load_resnet18_timm(
+        num_classes=5
+    )  # Replace with your model loading function
     model.load_state_dict(torch.load("path_to_your_model_weights.pt"))
     model.eval()  # Set model to evaluation mode
 
@@ -65,6 +75,7 @@ def test_model_with_preprocessed_image():
 
     # Assert conditions (example: checking the highest probability is reasonable)
     assert probabilities.max() > 0.5, "Model confidence is too low"
+
 
 def test_classify_no_file(client):
     """

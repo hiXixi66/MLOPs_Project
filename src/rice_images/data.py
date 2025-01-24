@@ -58,19 +58,20 @@ def pre_process_data():
     Pre-process raw data into train, validation, and test datasets.
     """
     # Define transformations (e.g., resizing, normalization)
-    transform = transforms.Compose([
-        transforms.Resize((250, 250)),  # Resize to 250x250
-        transforms.ToTensor(),  # Convert image to Tensor
-        transforms.Normalize(
-            mean=[0.485, 0.456, 0.406],
-            std=[0.229, 0.224, 0.225]
-        ),  # Normalize
-    ])
+    transform = transforms.Compose(
+        [
+            transforms.Resize((250, 250)),  # Resize to 250x250
+            transforms.ToTensor(),  # Convert image to Tensor
+            transforms.Normalize(
+                mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]
+            ),  # Normalize
+        ]
+    )
 
     # Load dataset from folder
     dataset = datasets.ImageFolder(
-        root='data/raw/Rice_Image_Dataset/Rice_Image_Dataset/',
-        transform=transform
+        root="data/raw/Rice_Image_Dataset/Rice_Image_Dataset/",
+        transform=transform,
     )
 
     # Set seed for reproducibility
@@ -78,7 +79,7 @@ def pre_process_data():
 
     # Define split sizes
     train_size = int(0.7 * len(dataset))  # 70% train
-    val_size = int(0.15 * len(dataset))   # 15% validation
+    val_size = int(0.15 * len(dataset))  # 15% validation
     test_size = len(dataset) - train_size - val_size  # Remaining for test
 
     # Randomly split the dataset into train, validation, and test
@@ -87,9 +88,9 @@ def pre_process_data():
     )
 
     # Save the splits
-    torch.save(train_dataset, 'data/processed/train_dataset.pt')
-    torch.save(val_dataset, 'data/processed/val_dataset.pt')
-    torch.save(test_dataset, 'data/processed/test_dataset.pt')
+    torch.save(train_dataset, "data/processed/train_dataset.pt")
+    torch.save(val_dataset, "data/processed/val_dataset.pt")
+    torch.save(test_dataset, "data/processed/test_dataset.pt")
 
 
 if __name__ == "__main__":

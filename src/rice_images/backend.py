@@ -18,7 +18,9 @@ def initialize_model():
     """Initialize the model and transform."""
     global model, transform
 
-    if model is None or transform is None:  # Initialize only if not already done
+    if (
+        model is None or transform is None
+    ):  # Initialize only if not already done
         # Define the relative path to the model
         model_path = os.path.join(
             os.path.dirname(__file__),
@@ -31,7 +33,9 @@ def initialize_model():
 
         # Load the model
         model = load_resnet18_timm(num_classes=5)
-        model.load_state_dict(torch.load(model_path, map_location=torch.device("cpu")))
+        model.load_state_dict(
+            torch.load(model_path, map_location=torch.device("cpu"))
+        )
         model.eval()
 
         # Define the transform
@@ -88,7 +92,9 @@ async def classify_image(file: UploadFile = File(...)):
     except Exception as e:
         # Step 7: Log the error
         print(f"Error during prediction: {str(e)}")
-        raise HTTPException(status_code=500, detail=f"Internal Server Error: {str(e)}")
+        raise HTTPException(
+            status_code=500, detail=f"Internal Server Error: {str(e)}"
+        )
 
 
 def predict_image(image_bytes: bytes):
