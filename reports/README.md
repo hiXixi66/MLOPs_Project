@@ -177,7 +177,7 @@ In order to get the exact same work environment a new team meamber would have to
 > *because we did not use any ... in our project. We have added an ... folder that contains ... for running our*
 > *experiments.*
 >
-> Answer: 
+> Answer:
 
 From the cookiecutter template we filled out models/ with model parameter weights, configs with the configuration file used to start the training code, src/ with ML code, tests/ with tests for our source code. We created a new folder outputs/ with the configuration files generated from hydra each training run. While the template typically places outputs in directories based on their creation date, we did not utilize this feature to minimize code restructuring. Although this approach worked well for this project, adopting the default structure would be beneficial for longer-term projects in order to minimize chances of overwriting run code.
 
@@ -362,7 +362,16 @@ We made use of config files. Whenever an experiment was run a config file would 
 > *For our project we developed several images: one for training, inference and deployment. For example to run the*
 > *training docker image: `docker run trainer:latest lr=1e-3 batch_size=64`. Link to docker file: <weblink>*
 >
-> Answer:
+> Answer: We use Docker and the Docker Engine to containerize various parts of our project, including API, backend, evaluation, frontend, and training components. Each component has a Dockerfile defining its environment. These Dockerfiles specify a base image, install necessary dependencies, copy project files, and define the startup command.
+
+To build our Docker images, we use the docker build command. Specifically: `docker build -t backend . -f backend.dockerfile .`. This builds the backend image.
+
+To run the built images, we use the docker run command.
+Specifically for the backend: `docker run --rm -p 8000:8000 -e "PORT=8000" backend`. This command maps port 8000 on the host to port 8000 in the container and sets the PORT environment variable inside the container to 8000. The --rm flag removes the container after it stops.
+
+These commands ensure consistent and isolated environments for each component of our project, simplifying development, testing, and deployment.
+
+This is the link for the dockerfiles: [Dockerfiles](https://github.com/hiXixi66/MLOPs_Project/tree/main/dockerfiles)
 
 --- question 15 fill here ---
 
